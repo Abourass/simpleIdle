@@ -7,4 +7,4 @@ function t(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as
 },{"./ListOfJobs":"tqbe"}],"qQ45":[function(require,module,exports) {
 var n=require("./class/Player"),t=function(){document.getElementById("startBtn").onclick=function(){return n.init()}};t();
 },{"./class/Player":"YIIy"}]},{},["qQ45"], null)
-//# sourceMappingURL=/dist/engine.18fca45d.js.map
+//# sourceMappingURL=/engine.18fca45d.js.map
