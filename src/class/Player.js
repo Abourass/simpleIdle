@@ -12,6 +12,7 @@ class Player {
     this._perc = 3;
     this._job = 'none';
     this._karma = 50;
+    this._items = [];
   }
 
   get money(){ return this._money; }
@@ -31,6 +32,12 @@ class Player {
   get job(){return this._job}
 
   get karma(){return this._karma}
+
+  get items(){return this._items}
+
+  addItem(item){
+    this._items.push(item);
+  }
 
   update(prop, operation, amount){
     const property = `_${prop}`;

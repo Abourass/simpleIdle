@@ -16,8 +16,9 @@ class JobLevel {
 }
 
 class Job {
-  constructor(title, requirements, salary, btnText, altText, expRequirements) {
+  constructor(title, category, requirements, salary, btnText, altText, expRequirements) {
     this.title = title;
+    this.category = category;
     this.requirements = requirements;
     this.salary = salary;
     this.btnText = btnText;
@@ -44,12 +45,12 @@ const expReq = {
 };
 
 const listOfJobs = () => [
-  new Job('Fry Cook', {int: 3, dex: 3, char: 3, perc: 3}, 1, 'Flip Burgers', 'Get greasy', expReq),
-  new Job('Barista', {int: 3, dex: 4, char: 4, perc: 3}, 1, 'Brew Coffee', 'Get steamy', expReq),
-  new Job('Bank Teller', {int: 3, dex: 3, char: 5, perc: 3}, 2, 'Handle Money', 'Paper Cuts are a real worry', expReq),
-  new Job('Shoplifter', {int: 3, dex: 5, char: 3, perc: 4}, 2, 'Steal pokemon cards', 'This can\'t be a great idea', expReq),
-  new Job('Youtube Blogger', {int: 3, dex: 3, char: 6, perc: 3}, 2, 'Vlog', 'This is somehow a job now', expReq),
-  new Job('Code Monkey', {int: 5, dex: 3, char: 3, perc: 3}, 2, 'Slam Keyboard', 'Crush your imagination', expReq),
-  new Job('Freelance Coder', {int: 6, dex: 3, char: 3, perc: 3}, 3, 'Code Idle Games', 'Make those numbers go up', expReq),
+  new Job('Fry Cook', 'food', {int: 3, dex: 3, char: 3, perc: 3}, 1, 'Flip Burgers', 'Get greasy', expReq),
+  new Job('Barista', 'food', {int: 3, dex: 4, char: 4, perc: 3}, 1, 'Brew Coffee', 'Get steamy', expReq),
+  new Job('Bank Teller', 'service', {int: 3, dex: 3, char: 5, perc: 3}, 2, 'Handle Money', 'Paper Cuts are a real worry', expReq),
+  new Job('Shoplifter', 'crime', {int: 3, dex: 5, char: 3, perc: 4}, 2, 'Steal pokemon cards', 'This can\'t be a great idea', expReq),
+  new Job('Youtube Blogger', 'fame', {int: 3, dex: 3, char: 6, perc: 3}, 2, 'Vlog', 'This is somehow a job now', expReq),
+  new Job('Code Monkey', 'computer', {int: 5, dex: 3, char: 3, perc: 3}, 2, 'Slam Keyboard', 'Crush your imagination', expReq),
+  new Job('Freelance Coder', 'computer', {int: 6, dex: 3, char: 3, perc: 3}, 3, 'Code Idle Games', 'Make those numbers go up', expReq),
 ];
 export default listOfJobs;
