@@ -4,7 +4,7 @@ import Shop from './class/Shop.js'
 const engine = () => {
   let player;
   if (localStorage.getItem('player')){
-    player = Player.load(JSON.parse(localStorage.getItem('player')))
+    player = new Player().load(JSON.parse(localStorage.getItem('player')))
   } else {
     player = new Player();
     document.getElementById('startBtn').onclick = () => player.init();
