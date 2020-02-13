@@ -104,11 +104,30 @@ crimePath.addLevel([
   new JobLevel({title: 'Shoplifter', salary: 1, btnText: 'Steal pokemon cards', altText: 'This can\'t be a great idea', requirements: {int: 3, dex: 5, char: 3, perc: 4, minExp: 0, maxExp: 200}})
 ], 0);
 
-const listOfJobPaths = (stats) => [
-    {computer: computerPath.openJobs(stats)[0].levels.filter(lvl => lvl.requirements.int <= stats.int && lvl.requirements.dex <= stats.dex && lvl.requirements.char <= stats.char && lvl.requirements.perc <= stats.perc)},
-    {food: foodPath.openJobs(stats)[0].levels.filter(lvl => lvl.requirements.int <= stats.int && lvl.requirements.dex <= stats.dex && lvl.requirements.char <= stats.char && lvl.requirements.perc <= stats.perc)},
-    {fame: famePath.openJobs(stats)[0].levels.filter(lvl => lvl.requirements.int <= stats.int && lvl.requirements.dex <= stats.dex && lvl.requirements.char <= stats.char && lvl.requirements.perc <= stats.perc)},
-    {service: servicePath.openJobs(stats)[0].levels.filter(lvl => lvl.requirements.int <= stats.int && lvl.requirements.dex <= stats.dex && lvl.requirements.char <= stats.char && lvl.requirements.perc <= stats.perc)},
-    {crime: crimePath.openJobs(stats)[0].levels.filter(lvl => lvl.requirements.int <= stats.int && lvl.requirements.dex <= stats.dex && lvl.requirements.char <= stats.char && lvl.requirements.perc <= stats.perc)},
-  ];
+const listOfJobPaths = (stats) => {
+  const paths = [];
+
+  if (computerPath.openJobs(stats)[0].levels.filter(lvl => lvl.requirements.int <= stats.int && lvl.requirements.dex <= stats.dex && lvl.requirements.char <= stats.char && lvl.requirements.perc <= stats.perc).length >= 1){
+    paths.push({computer: computerPath.openJobs(stats)[0].levels.filter(lvl => lvl.requirements.int <= stats.int && lvl.requirements.dex <= stats.dex && lvl.requirements.char <= stats.char && lvl.requirements.perc <= stats.perc)})
+  }
+
+  if (foodPath.openJobs(stats)[0].levels.filter(lvl => lvl.requirements.int <= stats.int && lvl.requirements.dex <= stats.dex && lvl.requirements.char <= stats.char && lvl.requirements.perc <= stats.perc).length >= 1){
+    paths.push({computer: foodPath.openJobs(stats)[0].levels.filter(lvl => lvl.requirements.int <= stats.int && lvl.requirements.dex <= stats.dex && lvl.requirements.char <= stats.char && lvl.requirements.perc <= stats.perc)})
+  }
+
+  if (famePath.openJobs(stats)[0].levels.filter(lvl => lvl.requirements.int <= stats.int && lvl.requirements.dex <= stats.dex && lvl.requirements.char <= stats.char && lvl.requirements.perc <= stats.perc).length >= 1){
+    paths.push({computer: famePath.openJobs(stats)[0].levels.filter(lvl => lvl.requirements.int <= stats.int && lvl.requirements.dex <= stats.dex && lvl.requirements.char <= stats.char && lvl.requirements.perc <= stats.perc)})
+  }
+
+  if (servicePath.openJobs(stats)[0].levels.filter(lvl => lvl.requirements.int <= stats.int && lvl.requirements.dex <= stats.dex && lvl.requirements.char <= stats.char && lvl.requirements.perc <= stats.perc).length >= 1){
+    paths.push({computer: servicePath.openJobs(stats)[0].levels.filter(lvl => lvl.requirements.int <= stats.int && lvl.requirements.dex <= stats.dex && lvl.requirements.char <= stats.char && lvl.requirements.perc <= stats.perc)})
+  }
+
+  if (crimePath.openJobs(stats)[0].levels.filter(lvl => lvl.requirements.int <= stats.int && lvl.requirements.dex <= stats.dex && lvl.requirements.char <= stats.char && lvl.requirements.perc <= stats.perc).length >= 1){
+    paths.push({computer: crimePath.openJobs(stats)[0].levels.filter(lvl => lvl.requirements.int <= stats.int && lvl.requirements.dex <= stats.dex && lvl.requirements.char <= stats.char && lvl.requirements.perc <= stats.perc)})
+  }
+
+  return paths;
+};
+
 export default listOfJobPaths;
