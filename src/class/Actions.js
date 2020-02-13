@@ -1,4 +1,4 @@
-import listOfJobs from './ListOfJobs';
+import listOfJobs from './ListOfJobs.js';
 
 export const chooseAJob = (e, player, fn) => {
   const target = e.currentTarget;
