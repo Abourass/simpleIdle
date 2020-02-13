@@ -13,9 +13,11 @@ class JobLevel {
     if (this.points >= this.requirements[this.level + 1].min){
       this._level += 1;
       this._bonus.salaryIncrease += this.requirements[this.level].addSalary;
+      console.log('bonus', this._bonus)
     }
   }
   loadExp(experienceObj){
+    console.log('expObj', experienceObj);
     this.requirements = experienceObj.requirements;
     this._level = experienceObj._level;
     this._points = experienceObj._points;
