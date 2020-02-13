@@ -65,15 +65,24 @@ class Player {
     const potentialJobPaths = listOfJobPaths({int: this.int, dex: this.dex, char: this.char, perc: this.perc});
     document.getElementById('statPointBlock').style.display = 'none';
 
-    console.log(potentialJobPaths)
+    console.log(potentialJobPaths);
     let btnBlockHTML = '';
 
+    potentialJobPaths.forEach(jobPath => {
+      const key = Object.keys(jobPath)[0];
+      const jobs = jobPath[key];
+      let btnMarkup = '';
+      jobs.forEach(job => btnMarkup +=`<button class="btn button is-primary jobBtn" title="${job.altText}" data-job="${job.title}">${job.title} - ${job.salary}</button>`);
+      btnBlockHTML += `
+      <div class="pathCategory">${key}
+        ${btnMarkup}
+      </div>
+      `;
+    });
 
-    // potentialJobs.forEach(job => btnBlockHTML += ` <button class="btn button is-primary jobBtn" title="${job.altText}" data-job="${job.title}">${job.title} - ${job.salary}</button>`);
+    document.getElementById('controls').innerHTML = btnBlockHTML;
 
-    // document.getElementById('controls').innerHTML = btnBlockHTML;
-
-    // document.querySelectorAll('.jobBtn').forEach(el => el.onclick = (e) => chooseAJob(e, this) )
+    document.querySelectorAll('.jobBtn').forEach(el => el.onclick = (e) => chooseAJob(e, this) )
   }
 
   init(){
