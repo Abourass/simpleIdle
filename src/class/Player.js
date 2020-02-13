@@ -99,7 +99,11 @@ class Player {
       switch (key){
         case '_job': {
           this._job = listOfJobs().filter(job => job.title === playerObj._job.title)[0];
-          if (playerObj._job.experience.points !== 'NaN'){ this.job.addExp(playerObj._job.experience.points) } ;
+          if (playerObj._job.experience.points !== 'NaN'){
+            this.job.addExp(playerObj._job.experience.points)
+          } else {
+            this.job.addExp(0)
+          }
           break;
         }
         default: { this[key] = playerObj[key] }
