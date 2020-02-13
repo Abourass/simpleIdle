@@ -1,4 +1,5 @@
 import listOfJobs from './ListOfJobs.js';
+import {chooseAJob} from './Actions.js'
 
 class Player {
   constructor() {
@@ -10,6 +11,7 @@ class Player {
     this._char = 3;
     this._perc = 3;
     this._job = 'none';
+    this._karma = 50;
   }
 
   get money(){ return this._money; }
@@ -27,6 +29,8 @@ class Player {
   get perc(){return this._perc}
 
   get job(){return this._job}
+
+  get karma(){return this._karma}
 
   update(prop, operation, amount){
     const property = `_${prop}`;
@@ -48,9 +52,11 @@ class Player {
 
     let btnBlockHTML = '';
 
-    potentialJobs.forEach(job => btnBlockHTML += ` <button class="btn button is-primary" title="${job.altText}">${job.title} - ${job.salary}</button>`);
+    potentialJobs.forEach(job => btnBlockHTML += ` <button class="btn button is-primary jobBtn" title="${job.altText}" data-job="${job.title}">${job.title} - ${job.salary}</button>`);
 
     document.getElementById('controls').innerHTML = btnBlockHTML;
+
+    document.querySelectorAll('.jobBtn').forEach(el => el.onclick = (e) => chooseAJob(e, this) )
   }
 
   init(){
