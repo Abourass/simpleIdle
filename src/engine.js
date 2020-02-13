@@ -20,11 +20,11 @@ const engine = () => {
 
   window.setInterval(() => {
     if (typeof player === 'object'){
-      if(player.job !== 'none'){ Shop.showItems(player); }                       // show Items in the shop
+      if(player.job !== 'none'){ Shop.showItems(player); }                             // show Items in the shop
       if (player.newTick.length >= 1){                                                 // Is there new perTick values?
         const valuesToAdd = player.newTick[0];                                         // Grab the first perTick object
-        Object.keys(valuesToAdd).forEach(key => perTick[key] += valuesToAdd[key]); // Increase the values within the perTick obj
-        player.newTick.unshift();                                                     // Destroy the newTick obj since we've finished processing it
+        Object.keys(valuesToAdd).forEach(key => perTick[key] += valuesToAdd[key]);     // Increase the values within the perTick obj
+        player.newTick.unshift();                                                      // Destroy the newTick obj since we've finished processing it
       }
 
       player.update('money', 'add', perTick.money);

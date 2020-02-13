@@ -20,7 +20,7 @@ export const loadAJob = (player) => {
   document.getElementById('job').innerText = player.job.title;
   document.getElementById('jobLvl').innerText = player.job.experience.level;
   document.getElementById('jobExp').innerText = player.job.experience.points;
-  document.getElementById('jobControl').onclick = () => { player.update('money', 'add', player.job.salary); player.job.addExp(10);}
+  document.getElementById('jobControl').onclick = () => { player.update('money', 'add', player.job.salary); player.job.addExp(10); };
   document.getElementById('deletePlayerControl').onclick = () => { localStorage.removeItem('player'); location.reload(); }
 };
 
