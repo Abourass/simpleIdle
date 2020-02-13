@@ -1,5 +1,7 @@
 const chooseAJob = (e, player) => {
   const target = e.currentTarget;
-  return target.dataset.job;
+  player._job =  target.dataset.job;
+  console.log(player)
+
 };
 export default {chooseAJob}

@@ -5,6 +5,9 @@
 
 ### Added
 
+- ✨ implemented karma, and choose a job eventHandlers [[9e1f068](https://github.com/Abourass/simpleIdle/commit/9e1f0681fc10dc4f168031643d38e62ad4f09329)]
+- ✨ Added new job (shoplifter) [[7028e90](https://github.com/Abourass/simpleIdle/commit/7028e90346c74f9ef04d9a17b339c340265209b6)]
+- ✨ Added choose a job action [[da8921c](https://github.com/Abourass/simpleIdle/commit/da8921cb220f9d38f6ae23cc9073f26af246f271)]
 - 🎉 Make it so number two [[875ce91](https://github.com/Abourass/simpleIdle/commit/875ce916eab37a0503efa8ff736a2d65dc2cfe94)]
 - 🎉 Make it so number one [[2fe082d](https://github.com/Abourass/simpleIdle/commit/2fe082dfb45ab78e1bdbcb6c197c789957a6e325)]
 
@@ -16,6 +19,7 @@
 
 ### Miscellaneous
 
+-  updating changelog.md [[9c2a97e](https://github.com/Abourass/simpleIdle/commit/9c2a97e709cb4a8c418a93e7719da2c644fd9bb1)]
 -  Added more jobs [[ef9c08b](https://github.com/Abourass/simpleIdle/commit/ef9c08b77095afaf0ea3e8c01f21bce890dbe6f4)]
 -  Adding Bank Teller [[3637eab](https://github.com/Abourass/simpleIdle/commit/3637eab8fedd0d017dfe2a0d8e9425fc6575d939)]
 
