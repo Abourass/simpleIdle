@@ -69,13 +69,11 @@ class JobPath{
   }
 
   openJobs(stats){
-    const jobs = this._levels.filter(careerLevel => careerLevel.levels.filter(level =>
+    return this._levels.filter(careerLevel => careerLevel.levels.filter(level =>
       level.requirements.int <= stats.int
       && level.requirements.dex <= stats.dex
       && level.requirements.char <= stats.char
       && level.requirements.perc <= stats.perc));
-    console.log(jobs);
-    return jobs;
   }
 }
 
@@ -107,10 +105,10 @@ crimePath.addLevel([
 ], 0);
 
 const listOfJobPaths = (stats) => [
-    computerPath.openJobs(stats),
-    foodPath.openJobs(stats),
-    famePath.openJobs(stats),
-    servicePath.openJobs(stats),
-    crimePath.openJobs(stats),
+    {computer: computerPath.openJobs(stats)[0].levels},
+    {food: foodPath.openJobs(stats)[0].levels},
+    {fame: famePath.openJobs(stats)[0].levels},
+    {service: servicePath.openJobs(stats)[0].levels},
+    {crime: crimePath.openJobs(stats)[0].levels},
   ];
 export default listOfJobPaths;
