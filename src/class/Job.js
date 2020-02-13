@@ -1,34 +1,21 @@
 class JobLevel {
-  constructor(expRequirement) {
-    this.requirements = expRequirement;
-    this._level = 1;
-    this._points = 0;
-    this._bonus = {salaryIncrease: 0}
+  constructor({title, salary, btnText, altText, requirements} = {}) {
+    this._title = title;
+    this._requirements = requirements;
+    this._salary = salary;
+    this._btnText = btnText;
+    this._altText = altText;
   }
-  get level(){ return this._level; }
-
-  get points(){ return this._points; }
-  set points(amount){
-    this._points += amount;
-    if (this.points >= this.requirements[this.level + 1].min){
-      this._level += 1;
-      this._bonus.salaryIncrease += this.requirements[this.level].addSalary;
-      console.log('bonus', this._bonus)
-    }
-  }
-  loadExp(experienceObj){
-    console.log('expObj', experienceObj);
-    this.requirements = experienceObj.requirements;
-    this._level = experienceObj._level;
-    this._points = experienceObj._points;
-    this._bonus = experienceObj._bonus;
-  }
+  get title() { return this._title }
+  get requirements(){ return this._requirements}
+  get salary(){ return this._salary}
+  get btnText(){ return this._btnText; }
+  get altText(){ return this._altText; }
 }
 
 class Job {
-  constructor(title, category, requirements, salary, btnText, altText, expRequirements) {
+  constructor({title, requirements, salary, btnText, altText, expRequirements} = {}) {
     this.title = title;
-    this.category = category;
     this.requirements = requirements;
     this.salary = salary;
     this.btnText = btnText;
@@ -50,20 +37,80 @@ class Job {
   loadExp(expObj){ this.experience.loadExp(expObj); this.salary += this.experience._bonus.salaryIncrease; }
 }
 
-const expReq = {
-  1: {min: 0},
-  2: {min: 100, addSalary: 1},
-  3: {min: 240, addSalary: 1},
-  4: {min: 1000, addSalary: 1}
-};
+class JobPath{
+  constructor({category} = {}) {
+    this._category = category;
+    this._levels = [];
+    this._curLevel = 'none';
+    this._exp = 0;
+  }
 
-const listOfJobs = () => [
-  new Job('Fry Cook', 'food', {int: 3, dex: 3, char: 3, perc: 3}, 1, 'Flip Burgers', 'Get greasy', expReq),
-  new Job('Barista', 'food', {int: 3, dex: 4, char: 4, perc: 3}, 1, 'Brew Coffee', 'Get steamy', expReq),
-  new Job('Bank Teller', 'service', {int: 3, dex: 3, char: 5, perc: 3}, 2, 'Handle Money', 'Paper Cuts are a real worry', expReq),
-  new Job('Shoplifter', 'crime', {int: 3, dex: 5, char: 3, perc: 4}, 2, 'Steal pokemon cards', 'This can\'t be a great idea', expReq),
-  new Job('Youtube Blogger', 'fame', {int: 3, dex: 3, char: 6, perc: 3}, 2, 'Vlog', 'This is somehow a job now', expReq),
-  new Job('Code Monkey', 'computer', {int: 5, dex: 3, char: 3, perc: 3}, 2, 'Slam Keyboard', 'Crush your imagination', expReq),
-  new Job('Freelance Coder', 'computer', {int: 6, dex: 3, char: 3, perc: 3}, 3, 'Code Idle Games', 'Make those numbers go up', expReq),
-];
-export default listOfJobs;
+  get category(){ return this._category }
+
+  addLevel(arrayOfJobLevel, jobLevel){
+    this._levels.push({number: jobLevel, levels: arrayOfJobLevel})
+  }
+
+  addExp(amountToIncreaseBy){
+    let amountToMax = this._levels.filter(level => level._title === this._curLevel)[0].requirements.maxExp - this._exp;
+    if (amountToIncreaseBy <= amountToMax){
+      this._exp += amountToIncreaseBy;
+      amountToMax = this._levels.filter(level => level._title === this._curLevel)[0].requirements.maxExp - this._exp
+    } else {
+      this._exp += amountToMax;
+      amountToMax = 0;
+    }
+
+    document.getElementById('jobExp').innerText = this._exp;
+
+    if (amountToMax === 0){
+      // loadPotentialJobs
+    }
+  }
+
+  openJobs(stats){
+    const jobs = this._levels.filter(careerLevel => careerLevel.levels.filter(level =>
+      level.requirements.int <= stats.int
+      && level.requirements.dex <= stats.dex
+      && level.requirements.char <= stats.char
+      && level.requirements.perc <= stats.perc));
+    console.log(jobs);
+    return jobs;
+  }
+}
+
+const computerPath = new JobPath({category: 'computer'});
+computerPath.addLevel([
+  new JobLevel({title: 'Code Monkey', salary: 1, btnText: 'Slam Keyboard', altText: 'Crush your imagination', requirements: {int: 5, dex: 3, char: 3, perc: 3, minExp: 0, maxExp: 200}}),
+  new JobLevel({title: 'Freelance Coder', salary: 2, btnText: 'Code Idle Games', altText: 'Make those numbers go up', requirements: {int: 6, dex: 3, char: 3, perc: 3, minExp: 0, maxExp: 200}})
+], 0);
+
+const foodPath = new JobPath({category: 'food'});
+foodPath.addLevel([
+  new JobLevel({title: 'Fry Cook', salary: 1, btnText: 'Flip Burgers', altText: 'Get greasy', requirements: {int: 3, dex: 3, char: 3, perc: 3, minExp: 0, maxExp: 200}}),
+  new JobLevel({title: 'Barista', salary: 1, btnText: 'Brew Coffee', altText: 'Get steamy', requirements: {int: 3, dex: 4, char: 4, perc: 3, minExp: 0, maxExp: 200}})
+], 0);
+
+const famePath = new JobPath({category: 'fame'});
+famePath.addLevel([
+  new JobLevel({title: 'Youtube Blogger', salary: 1, btnText: 'Vlog', altText: 'This is somehow a job now', requirements: {int: 3, dex: 3, char: 6, perc: 3, minExp: 0, maxExp: 200}})
+], 0);
+
+const servicePath = new JobPath({category: 'service'});
+servicePath.addLevel([
+  new JobLevel({title: 'Bank Teller', salary: 1, btnText: 'Handle Money', altText: 'Paper Cuts are a real worry', requirements: {int: 3, dex: 3, char: 5, perc: 3, minExp: 0, maxExp: 200}})
+], 0);
+
+const crimePath = new JobPath({category: 'crime'});
+crimePath.addLevel([
+  new JobLevel({title: 'Shoplifter', salary: 1, btnText: 'Steal pokemon cards', altText: 'This can\'t be a great idea', requirements: {int: 3, dex: 5, char: 3, perc: 4, minExp: 0, maxExp: 200}})
+], 0);
+
+const listOfJobPaths = (stats) => [
+    computerPath.openJobs(stats),
+    foodPath.openJobs(stats),
+    famePath.openJobs(stats),
+    servicePath.openJobs(stats),
+    crimePath.openJobs(stats),
+  ];
+export default listOfJobPaths;

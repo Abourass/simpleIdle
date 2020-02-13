@@ -1,4 +1,4 @@
-import listOfJobs from './Job.js';
+import listOfJobPaths from './Job.js';
 import {chooseAJob} from './Actions.js'
 
 class Player {
@@ -62,16 +62,18 @@ class Player {
   }
 
   chooseFirstJob(){
-    const potentialJobs = listOfJobs().filter(job => job.requirements.int <= this.int && job.requirements.dex <= this.dex && job.requirements.char <= this.char && job.requirements.perc <= this.perc);
+    const potentialJobPaths = listOfJobPaths({int: this.int, dex: this.dex, char: this.char, perc: this.perc});
     document.getElementById('statPointBlock').style.display = 'none';
 
+    console.log(potentialJobPaths)
     let btnBlockHTML = '';
 
-    potentialJobs.forEach(job => btnBlockHTML += ` <button class="btn button is-primary jobBtn" title="${job.altText}" data-job="${job.title}">${job.title} - ${job.salary}</button>`);
 
-    document.getElementById('controls').innerHTML = btnBlockHTML;
+    // potentialJobs.forEach(job => btnBlockHTML += ` <button class="btn button is-primary jobBtn" title="${job.altText}" data-job="${job.title}">${job.title} - ${job.salary}</button>`);
 
-    document.querySelectorAll('.jobBtn').forEach(el => el.onclick = (e) => chooseAJob(e, this) )
+    // document.getElementById('controls').innerHTML = btnBlockHTML;
+
+    // document.querySelectorAll('.jobBtn').forEach(el => el.onclick = (e) => chooseAJob(e, this) )
   }
 
   init(){
