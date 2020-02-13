@@ -9,7 +9,7 @@ const engine = () => {
     player = new Player();
     document.getElementById('startBtn').onclick = () => player.init();
   }
-
+  console.log('player on load', player)
   const perTick = {
     money: 0,
     exp: 0,
@@ -17,15 +17,19 @@ const engine = () => {
   };
 
   window.setInterval(() => {
-    if(player.job !== 'none'){ Shop.showItems(player); }                       // show Items in the shop
-    if (player.newTick.length >= 1){                                                 // Is there new perTick values?
-      const valuesToAdd = player.newTick[0];                                         // Grab the first perTick object
-      Object.keys(valuesToAdd).forEach(key => perTick[key] += valuesToAdd[key]); // Increase the values within the perTick obj
-      player.newTick.unshift();                                                     // Destroy the newTick obj since we've finished processing it
-    }
+    if (typeof player === 'object'){
+      if(player.job !== 'none'){ Shop.showItems(player); }                       // show Items in the shop
+      if (player.newTick.length >= 1){                                                 // Is there new perTick values?
+        const valuesToAdd = player.newTick[0];                                         // Grab the first perTick object
+        Object.keys(valuesToAdd).forEach(key => perTick[key] += valuesToAdd[key]); // Increase the values within the perTick obj
+        player.newTick.unshift();                                                     // Destroy the newTick obj since we've finished processing it
+      }
 
-    player.update('money', 'add', perTick.money);
-    player.addJobExp(perTick.jobExp);
+      player.update('money', 'add', perTick.money);
+      player.addJobExp(perTick.jobExp);
+    } else {
+      console.log(player)
+    }
     localStorage.setItem('player', JSON.stringify(player))
   }, 1000)
 };
