@@ -5,7 +5,7 @@ import {loadAJob} from './class/Actions.js';
 const engine = () => {
   let player;
   if (localStorage.getItem('player')){
-    player = new Player().load(JSON.parse(localStorage.getItem('player')))
+    player = new Player().load(JSON.parse(localStorage.getItem('player')));
     loadAJob(player);
   } else {
     player = new Player();

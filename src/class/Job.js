@@ -13,6 +13,11 @@ class JobLevel {
       this._level += 1;
     }
   }
+  loadExp(experienceObj){
+    this._level = experienceObj._level;
+    this._points = experienceObj._points;
+    this.requirements = experienceObj.requirements;
+  }
 }
 
 class Job {
@@ -36,6 +41,8 @@ class Job {
       document.getElementById('jobLvl').innerText = this.experience.level;
     }
   }
+
+  loadExp(expObj){ this.experience.loadExp(expObj); }
 }
 
 const expReq = {
