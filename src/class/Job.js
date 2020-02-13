@@ -42,6 +42,7 @@ const expReq = {
   1: {min: 0},
   2: {min: 100, addSalary: 1},
   3: {min: 240, addSalary: 1},
+  4: {min: 1000, addSalary: 1}
 };
 
 const listOfJobs = () => [
