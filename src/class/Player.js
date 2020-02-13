@@ -93,6 +93,16 @@ class Player {
     document.getElementById('incCharisma').onclick = () => this.increaseStat('char', () => this.chooseFirstJob());
     document.getElementById('incPerception').onclick = () => this.increaseStat('perc', () => this.chooseFirstJob());
   }
+
+  load(playerObj){
+    Object.keys(playerObj).forEach(key => {
+      switch (key){
+        case '_job': { this._job = listOfJobs().filter(job => job.title === playerObj._job.title)[0]; break; }
+        default: { this[key] = playerObj[key] }
+      }
+    });
+    return this;
+  }
 }
 
 export default Player;
