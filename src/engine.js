@@ -16,7 +16,8 @@ const engine = () => {
   const perTick = {
     money: 0,
     exp: 0,
-    jobExp: 0
+    jobExp: 0,
+    tickSpeed: 2000
   };
 
   window.setInterval(() => {
@@ -34,7 +35,7 @@ const engine = () => {
       console.log(player)
     }
     localStorage.setItem('player', JSON.stringify(player))
-  }, 1000)
+  }, perTick.tickSpeed)
 };
 
 engine();

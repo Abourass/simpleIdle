@@ -95,7 +95,6 @@ class Player {
   }
 
   load(playerObj){
-    console.log('playerObj', playerObj)
     Object.keys(playerObj).forEach(key => {
       switch (key){
         case '_job': {

@@ -42,7 +42,7 @@ class Job {
     }
   }
 
-  loadExp(expObj){ console.log('expObj -> (job)', expObj); this.experience.loadExp(expObj); }
+  loadExp(expObj){ this.experience.loadExp(expObj); }
 }
 
 const expReq = {
