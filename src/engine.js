@@ -4,14 +4,6 @@ import {loadAJob} from './class/Actions.js';
 
 const engine = () => {
   let player;
-  if (localStorage.getItem('player')){
-    player = new Player().load(JSON.parse(localStorage.getItem('player')));
-    loadAJob(player);
-    Shop.loadShop(player);
-  } else {
-    player = new Player();
-    document.getElementById('startBtn').onclick = () => player.init();
-  }
 
   const perTick = {
     money: 0,
@@ -19,6 +11,23 @@ const engine = () => {
     jobExp: 0,
     tickSpeed: 2000
   };
+
+  if (localStorage.getItem('player')){
+    player = new Player().load(JSON.parse(localStorage.getItem('player')));
+    loadAJob(player);
+    Shop.loadShop(player);
+    if (player.items >= 1){
+      player.items.forEach(item => {
+        if (item.bonus.moneyPerSecond){ perTick.money += item.bonus.moneyPerSecond }
+        if (item.bonus.expPerSecond){ perTick.exp += item.bonus.expPerSecond }
+        if (item.bonus.jobExpPerSecond){ perTick.jobExp += item.bonus.jobExpPerSecond}
+        if (item.bonus.tickSpeed){ perTick.tickSpeed += item.bonus.tickSpeed}
+      })
+    }
+  } else {
+    player = new Player();
+    document.getElementById('startBtn').onclick = () => player.init();
+  }
 
   window.setInterval(() => {
     if (typeof player === 'object'){
