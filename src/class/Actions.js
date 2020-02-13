@@ -1,7 +1,16 @@
-export const chooseAJob = (e, player) => {
+import listOfJobs from './ListOfJobs';
+
+export const chooseAJob = (e, player, fn) => {
   const target = e.currentTarget;
   player._job =  target.dataset.job;
-  console.log(player)
-
+  fn();
 };
-export default {chooseAJob}
+
+export const loadJob = (player) => {
+  const job = listOfJobs().filter(job => job.title === player._job)[0]; // Select job of same title
+  document.getElementById('controls').innerHTML = `
+    <button class="btn button is-success" id="jobControl">${job.btnText} - $${job.salary}</button>
+  `;
+  document.getElementById('jobControl').onclick = () => player.update('money', 'add', job.salary)
+};
+export default {chooseAJob, loadJob}
