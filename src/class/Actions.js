@@ -6,7 +6,7 @@ export const chooseAJob = (e, player) => {
   document.getElementById('controls').innerHTML = `
     <button class="btn button is-success" id="jobControl">${player.job.btnText} - $${player.job.salary}</button>
   `;
-  document.getElementById('jobControl').onclick = () => player.update('money', 'add', player.job.salary)
+  document.getElementById('jobControl').onclick = () => { player.update('money', 'add', player.job.salary); player.job.addExp(10)}
 };
 
 export default {chooseAJob}
