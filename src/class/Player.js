@@ -97,7 +97,11 @@ class Player {
   load(playerObj){
     Object.keys(playerObj).forEach(key => {
       switch (key){
-        case '_job': { this._job = listOfJobs().filter(job => job.title === playerObj._job.title)[0]; break; }
+        case '_job': {
+          this._job = listOfJobs().filter(job => job.title === playerObj._job.title)[0];
+          this._job.addExp(playerObj._job.experience.points);
+          break;
+        }
         default: { this[key] = playerObj[key] }
       }
     });
