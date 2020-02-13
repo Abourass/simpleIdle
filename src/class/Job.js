@@ -25,9 +25,9 @@ class Job {
     this.experience = new JobLevel(expRequirements);
   }
 
-  addExp(amount){
+  addExp(amountToIncreaseBy){
     const lvlWas = this.experience.level;
-    this.experience.points(amount);
+    this.experience.points = amountToIncreaseBy;
     if (this.experience.level > lvlWas){
       this.salary += this.experience.requirements[this.experience.level].addSalary;
       document.getElementById('jobControl').innerText = `${this.title} - $${this.salary}`
