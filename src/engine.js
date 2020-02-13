@@ -1,15 +1,17 @@
 import Player from './class/Player.js'
 import Shop from './class/Shop.js'
+import {loadAJob} from './class/Actions.js';
 
 const engine = () => {
   let player;
   if (localStorage.getItem('player')){
     player = new Player().load(JSON.parse(localStorage.getItem('player')))
+    loadAJob(player);
   } else {
     player = new Player();
     document.getElementById('startBtn').onclick = () => player.init();
   }
-  console.log('player on load', player)
+
   const perTick = {
     money: 0,
     exp: 0,
