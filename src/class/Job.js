@@ -105,10 +105,10 @@ crimePath.addLevel([
 ], 0);
 
 const listOfJobPaths = (stats) => [
-    {computer: computerPath.openJobs(stats)[0].levels},
-    {food: foodPath.openJobs(stats)[0].levels},
-    {fame: famePath.openJobs(stats)[0].levels},
-    {service: servicePath.openJobs(stats)[0].levels},
-    {crime: crimePath.openJobs(stats)[0].levels},
+    {computer: computerPath.openJobs(stats)[0].levels.filter(lvl => lvl.requirements.int <= stats.int && lvl.requirements.dex <= stats.dex && lvl.requirements.char <= stats.char && lvl.requirements.perc <= stats.perc)},
+    {food: foodPath.openJobs(stats)[0].levels.filter(lvl => lvl.requirements.int <= stats.int && lvl.requirements.dex <= stats.dex && lvl.requirements.char <= stats.char && lvl.requirements.perc <= stats.perc)},
+    {fame: famePath.openJobs(stats)[0].levels.filter(lvl => lvl.requirements.int <= stats.int && lvl.requirements.dex <= stats.dex && lvl.requirements.char <= stats.char && lvl.requirements.perc <= stats.perc)},
+    {service: servicePath.openJobs(stats)[0].levels.filter(lvl => lvl.requirements.int <= stats.int && lvl.requirements.dex <= stats.dex && lvl.requirements.char <= stats.char && lvl.requirements.perc <= stats.perc)},
+    {crime: crimePath.openJobs(stats)[0].levels.filter(lvl => lvl.requirements.int <= stats.int && lvl.requirements.dex <= stats.dex && lvl.requirements.char <= stats.char && lvl.requirements.perc <= stats.perc)},
   ];
 export default listOfJobPaths;
