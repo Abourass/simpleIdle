@@ -7,7 +7,9 @@ export const chooseAJob = (e, player, fn) => {
 };
 
 export const loadJob = (player) => {
+  console.log('player from within loadJob', player)
   const job = listOfJobs().filter(job => job.title === player._job)[0]; // Select job of same title
+  console.log('job', job)
   document.getElementById('controls').innerHTML = `
     <button class="btn button is-success" id="jobControl">${job.btnText} - $${job.salary}</button>
   `;
