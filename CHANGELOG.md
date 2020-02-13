@@ -5,6 +5,8 @@
 
 ### Added
 
+- ✨ Add fourth job level [[1f221ae](https://github.com/Abourass/simpleIdle/commit/1f221ae20c6ac0312bca5a1dc052b77abc4f680f)]
+- ✨ Calculate item bonus [[86b38c1](https://github.com/Abourass/simpleIdle/commit/86b38c1526f28b016c0844ce080a8e3655f765d1)]
 - ✨ Adding a shop [[83cce14](https://github.com/Abourass/simpleIdle/commit/83cce148c5131082e8f4316608ebaa3f8ebef172)]
 - ✨ Creating item class [[ded9656](https://github.com/Abourass/simpleIdle/commit/ded9656ec31834d92962aecf394bd94ef3783c4c)]
 - ✨ Jobs now have exp [[8710652](https://github.com/Abourass/simpleIdle/commit/8710652643e7d3c83119993f8207064ee714f766)]
@@ -25,6 +27,11 @@
 
 ### Fixed
 
+- 🐛 Fixed issue with passing the correct info to nextTick [[854a7c5](https://github.com/Abourass/simpleIdle/commit/854a7c5afd8dd9090a17a177809b6f08119a7f47)]
+- 🐛 Fixed bug where if you passed the level requirement the item disappears [[4f2b188](https://github.com/Abourass/simpleIdle/commit/4f2b188e9005e5c1c8ecbf73f670901b2cbf372a)]
+- 🐛 Was trying to call requirements not requirement [[47382bf](https://github.com/Abourass/simpleIdle/commit/47382bf4b174573d89f3be58497dc324daea7f7a)]
+- 🐛 Moving showItems to click actions [[da3a640](https://github.com/Abourass/simpleIdle/commit/da3a64024e151bb88202c1a8037385180b51b266)]
+- 🐛 Fixing broken .js link [[44fd9cf](https://github.com/Abourass/simpleIdle/commit/44fd9cf0f46ea5d6ab2bfa2d74b989bf3243966d)]
 - 🐛 Fix incorrect link to shop module [[a16637c](https://github.com/Abourass/simpleIdle/commit/a16637c2a0e602123a1bfd2706ae70c5a1688a5e)]
 - 🐛 Fixing ui bug where I forgot to add .title [[6db18f5](https://github.com/Abourass/simpleIdle/commit/6db18f54528f64d84be73b2f937fab772c045937)]
 - 🐛 Fixing incorrect use of setter [[1b87fea](https://github.com/Abourass/simpleIdle/commit/1b87fea27c29e13ba73ce80b0cda992e36bd17bb)]
@@ -36,6 +43,8 @@
 
 ### Miscellaneous
 
+-  debugging potential methods for showItems [[2b00d64](https://github.com/Abourass/simpleIdle/commit/2b00d64c16eeea23e0201af2c04b54b9256df68e)]
+-  updating CHANGELOG.md [[bbad3f6](https://github.com/Abourass/simpleIdle/commit/bbad3f6bb3c833c9bbc6e2f47fc35fdf97952238)]
 -  updating CHANGELOG.md [[4e5dbdd](https://github.com/Abourass/simpleIdle/commit/4e5dbdd04a1de85101fa62f4e2d4d38a89e9c61f)]
 -  updating CHANGELOG.md [[007e255](https://github.com/Abourass/simpleIdle/commit/007e255f5400c65454916d0488d6c490ff5cdb4b)]
 -  debugging loadJob [[918ee1f](https://github.com/Abourass/simpleIdle/commit/918ee1f3b63dc9115575909ed622dee93943bf07)]
