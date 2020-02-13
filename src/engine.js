@@ -25,7 +25,7 @@ const engine = () => {
     }
 
     player.update('money', 'add', perTick.money);
-    player.update('jobExp', 'add', perTick.jobExp);
+    player.addJobExp(perTick.jobExp);
     localStorage.setItem('player', JSON.stringify(player))
   }, 1000)
 };

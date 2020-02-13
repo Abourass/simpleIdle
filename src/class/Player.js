@@ -56,6 +56,11 @@ class Player {
     }
   }
 
+  addJobExp(amount){
+    if (this.job === 'none'){ return }
+    this.job.addExp(amount);
+  }
+
   chooseFirstJob(){
     const potentialJobs = listOfJobs().filter(job => job.requirements.int <= this.int && job.requirements.dex <= this.dex && job.requirements.char <= this.char && job.requirements.perc <= this.perc);
     document.getElementById('statPointBlock').style.display = 'none';
