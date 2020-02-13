@@ -28,9 +28,11 @@ class Job {
   addExp(amountToIncreaseBy){
     const lvlWas = this.experience.level;
     this.experience.points = amountToIncreaseBy;
+    document.getElementById('jobExp').innerText = this.experience.points;
     if (this.experience.level > lvlWas){
       this.salary += this.experience.requirements[this.experience.level].addSalary;
-      document.getElementById('jobControl').innerText = `${this.title} - $${this.salary}`
+      document.getElementById('jobControl').innerText = `${this.btnText} - $${this.salary}`;
+      document.getElementById('jobLvl').innerText = this.experience.level;
     }
   }
 }
