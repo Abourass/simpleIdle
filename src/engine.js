@@ -14,7 +14,7 @@ const engine = () => {
     }
     if (player.newTick.length >= 1){
       const valuesToAdd = player.newTick[0];
-      Object.keys(valuesToAdd).forEach(key => perTick[key] += valuesToAdd[key])
+      Object.keys(valuesToAdd).forEach(key => perTick[key] += valuesToAdd[key]);
       player.newTick.unshift();
     }
 
