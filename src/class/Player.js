@@ -38,7 +38,7 @@ class Player {
 
   addItem(item){
     this._items.push(item);
-    this.newTick.push(item);
+    this.newTick.push({money: item.bonus.moneyPerSecond});
     console.log(item);
   }
 
