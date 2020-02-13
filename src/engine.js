@@ -7,6 +7,7 @@ const engine = () => {
   if (localStorage.getItem('player')){
     player = new Player().load(JSON.parse(localStorage.getItem('player')));
     loadAJob(player);
+    Shop.loadShop(player);
   } else {
     player = new Player();
     document.getElementById('startBtn').onclick = () => player.init();

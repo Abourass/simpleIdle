@@ -34,6 +34,13 @@ class Shop{
 
     document.querySelectorAll('.itemChoice').forEach(itemEl => itemEl.onclick = (e) => this.buyItem(e, player))
   }
+
+  loadShop(player){
+    player.items.forEach(item => {
+      this._items = this._items.filter(_item => _item.title !== item.title);
+    });
+    this.showItems(player);
+  }
 }
 
 export default new Shop();
