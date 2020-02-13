@@ -13,6 +13,7 @@ class Player {
     this._job = 'none';
     this._karma = 50;
     this._items = [];
+    this.newTick = [];
   }
 
   get money(){ return this._money; }
@@ -37,6 +38,8 @@ class Player {
 
   addItem(item){
     this._items.push(item);
+    this.newTick.push(item);
+    console.log(item);
   }
 
   update(prop, operation, amount){
