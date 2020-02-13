@@ -1,5 +1,5 @@
 import listOfJobs from './ListOfJobs.js';
-import {chooseAJob, loadJob} from './Actions.js'
+import {chooseAJob} from './Actions.js'
 
 class Player {
   constructor() {
@@ -56,7 +56,7 @@ class Player {
 
     document.getElementById('controls').innerHTML = btnBlockHTML;
 
-    document.querySelectorAll('.jobBtn').forEach(el => el.onclick = (e) => chooseAJob(e, this, loadJob(this)) )
+    document.querySelectorAll('.jobBtn').forEach(el => el.onclick = (e) => chooseAJob(e, this) )
   }
 
   init(){
