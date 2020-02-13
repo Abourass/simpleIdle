@@ -109,6 +109,12 @@ class Player {
         default: { this[key] = playerObj[key] }
       }
     });
+    this.update('health', 'add', 0);
+    this.update('statPoints', 'add', 0);
+    this.update('int', 'add', 0);
+    this.update('dex', 'add', 0);
+    this.update('char', 'add', 0);
+    this.update('perc', 'add', 0);
     return this;
   }
 }
