@@ -19,8 +19,7 @@ class Shop{
   }
 
   showItems(player){
-    console.log(player)
-    const items = this._items.filter(item => item.requirements.jobCategory === player.job.category && item.requirements.jobLevel === player.job.experience.level);
+    const items = this._items.filter(item => item.requirement.jobCategory === player.job.category && item.requirement.jobLevel === player.job.experience.level);
     let itemMarkup = '';
     items.forEach(item => itemMarkup += `
     <a class="panel-block itemChoice" id="${item.title.replace(/ /g, "_")}Block" data-title="${item.title}">
