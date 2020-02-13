@@ -3,6 +3,7 @@ class JobLevel {
     this.requirements = expRequirement;
     this._level = 1;
     this._points = 0;
+    this._bonus = {salaryIncrease: 0}
   }
   get level(){ return this._level; }
 
@@ -11,12 +12,14 @@ class JobLevel {
     this._points += amount;
     if (this.points >= this.requirements[this.level + 1].min){
       this._level += 1;
+      this._bonus.salaryIncrease += this.requirements[this.level].addSalary;
     }
   }
   loadExp(experienceObj){
+    this.requirements = experienceObj.requirements;
     this._level = experienceObj._level;
     this._points = experienceObj._points;
-    this.requirements = experienceObj.requirements;
+    this._bonus = experienceObj._bonus;
   }
 }
 
@@ -42,7 +45,7 @@ class Job {
     }
   }
 
-  loadExp(expObj){ this.experience.loadExp(expObj); }
+  loadExp(expObj){ this.experience.loadExp(expObj); this.salary += this.salary._bonus.salaryIncrease; }
 }
 
 const expReq = {
