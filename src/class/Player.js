@@ -4,7 +4,7 @@ class Player {
   constructor() {
     this._money = 0;
     this._health = 20;
-    this._statPoints = 5;
+    this._statPoints = 4;
     this._int = 3;
     this._dex = 3;
     this._char = 3;
@@ -37,9 +37,8 @@ class Player {
   increaseStat(stat, fn){
     if (this.statPoints > 0){
       this.update('statPoints', 'sub', 1);
-      this.update(stat, 'add', 1)
-    } else {
-      fn();
+      this.update(stat, 'add', 1);
+      if (this.statPoints === 0){ fn() }
     }
   }
 
@@ -49,7 +48,7 @@ class Player {
 
     let btnBlockHTML = '';
 
-    potentialJobs.forEach(job => btnBlockHTML += ` <button class="btn button is-primary">${job.title} - ${job.salary}</button>`);
+    potentialJobs.forEach(job => btnBlockHTML += ` <button class="btn button is-primary" title="${job.altText}">${job.title} - ${job.salary}</button>`);
 
     document.getElementById('controls').innerHTML = btnBlockHTML;
   }
