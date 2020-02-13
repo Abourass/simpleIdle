@@ -7,8 +7,7 @@ export const chooseAJob = (e, player, fn) => {
 };
 
 export const loadJob = (player) => {
-  console.log('player from within loadJob', player);
-  console.log('player Job', player.job);
+  console.log('player from within loadJob', player.job);
   const job = listOfJobs().filter(job => job.title === player.job); // Select job of same title
   console.log('job', job);
   document.getElementById('controls').innerHTML = `
