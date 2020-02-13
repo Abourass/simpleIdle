@@ -5,6 +5,7 @@
 
 ### Added
 
+- ✨ Creating item class [[ded9656](https://github.com/Abourass/simpleIdle/commit/ded9656ec31834d92962aecf394bd94ef3783c4c)]
 - ✨ Jobs now have exp [[8710652](https://github.com/Abourass/simpleIdle/commit/8710652643e7d3c83119993f8207064ee714f766)]
 - ✨ You can choose a job now [[e7c07f3](https://github.com/Abourass/simpleIdle/commit/e7c07f3127f4e7f63e1a8d283341cb227cbd8445)]
 - ✨ implemented karma, and choose a job eventHandlers [[9e1f068](https://github.com/Abourass/simpleIdle/commit/9e1f0681fc10dc4f168031643d38e62ad4f09329)]
@@ -15,10 +16,13 @@
 
 ### Changed
 
+- 🎨 CHanging job into a level el [[4c5fa8f](https://github.com/Abourass/simpleIdle/commit/4c5fa8f798c06a21d4c1b996125c2aaa07d23970)]
+- 🎨 Updating UI so you can see your jobLvl / jobExp [[398c073](https://github.com/Abourass/simpleIdle/commit/398c0736bcb8d81fc6bdd56233d327f1137aa0c5)]
 - 🎨 Reduced job fn&#x27;s into single file, nested job under player for easier access [[4f54fea](https://github.com/Abourass/simpleIdle/commit/4f54fea8515268fb2f9a7f187a7ef43ae7f506ff)]
 
 ### Fixed
 
+- 🐛 Fixing ui bug where I forgot to add .title [[6db18f5](https://github.com/Abourass/simpleIdle/commit/6db18f54528f64d84be73b2f937fab772c045937)]
 - 🐛 Fixing incorrect use of setter [[1b87fea](https://github.com/Abourass/simpleIdle/commit/1b87fea27c29e13ba73ce80b0cda992e36bd17bb)]
 - 🐛 fixed listOfJobs not being called correctly from Actions.js [[4c9ab5c](https://github.com/Abourass/simpleIdle/commit/4c9ab5ccfe0d7ab1fb33576f4a4c2946a3c86dcf)]
 - 🐛 Fixing missing export statement [[ac36077](https://github.com/Abourass/simpleIdle/commit/ac3607744dbe0d53e0edf38c883c9cd55329dfe1)]
@@ -28,6 +32,7 @@
 
 ### Miscellaneous
 
+-  updating CHANGELOG.md [[007e255](https://github.com/Abourass/simpleIdle/commit/007e255f5400c65454916d0488d6c490ff5cdb4b)]
 -  debugging loadJob [[918ee1f](https://github.com/Abourass/simpleIdle/commit/918ee1f3b63dc9115575909ed622dee93943bf07)]
 -  debugging loadJob [[6b4d6e9](https://github.com/Abourass/simpleIdle/commit/6b4d6e99cec009ead98d6c0c7adfc641f99a7848)]
 -  debugging loadJob [[2b4104c](https://github.com/Abourass/simpleIdle/commit/2b4104ce32391179284d95d9c0ae32097d569c72)]
