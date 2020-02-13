@@ -19,6 +19,7 @@ class Shop{
   }
 
   showItems(player){
+    console.log(player)
     const items = this._items.filter(item => item.requirements.jobCategory === player.job.category && item.requirements.jobLevel === player.job.experience.level);
     let itemMarkup = '';
     items.forEach(item => itemMarkup += `
