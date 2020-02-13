@@ -1,4 +1,4 @@
-import player from './class/Player'
+import player from './class/Player.js'
 
 const engine = () => {
   document.getElementById('startBtn').onclick = () => player.init();

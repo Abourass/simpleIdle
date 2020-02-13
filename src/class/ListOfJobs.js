@@ -1,4 +1,4 @@
-import Job from './Job';
+import Job from './Job.js';
 
 const listOfJobs = () => [
     new Job('Fry Cook', {int: 3, dex: 3, char: 3, perc: 3}, 1, 'Flip Burgers'),

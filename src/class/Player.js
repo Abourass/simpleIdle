@@ -1,4 +1,4 @@
-import listOfJobs from './ListOfJobs';
+import listOfJobs from './ListOfJobs.js';
 
 class Player {
   constructor() {
