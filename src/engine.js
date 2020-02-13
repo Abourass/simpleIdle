@@ -11,7 +11,7 @@ const engine = () => {
     jobExp: 0,
     tickSpeed: 2000
   };
-localStorage.removeItem('player')
+
   if (localStorage.getItem('player')){
     player = new Player().load(JSON.parse(localStorage.getItem('player')));
     loadAJob(player);
