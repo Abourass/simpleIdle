@@ -1,5 +1,5 @@
 import player from './class/Player.js'
-import Shop from './Shop.js'
+import Shop from './class/Shop.js'
 
 const engine = () => {
   document.getElementById('startBtn').onclick = () => player.init();
