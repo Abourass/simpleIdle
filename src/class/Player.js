@@ -1,4 +1,4 @@
-const listOfJobs = require('./ListOfJobs');
+import listOfJobs from './ListOfJobs';
 
 class Player {
   constructor() {
@@ -75,4 +75,4 @@ class Player {
   }
 }
 
-module.exports = new Player();
+export default new Player();

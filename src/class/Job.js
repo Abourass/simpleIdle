@@ -1,4 +1,4 @@
-module.exports = class Job {
+export default class Job {
   constructor(title, requirements, salary, btnText) {
     this.title = title;
     this.requirements = requirements;
