@@ -47,7 +47,7 @@ class Job {
     }
   }
 
-  loadExp(expObj){ this.experience.loadExp(expObj); this.salary += this.salary._bonus.salaryIncrease; }
+  loadExp(expObj){ this.experience.loadExp(expObj); this.salary += this.experience._bonus.salaryIncrease; }
 }
 
 const expReq = {
