@@ -1,5 +1,5 @@
 import Player from './class/Player.js'
-import Shop from './class/Shop.js'
+import Shop from './class/shop/Shop.js'
 
 const engine = () => {
   let player;
