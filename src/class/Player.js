@@ -11,7 +11,6 @@ class Player {
     this._char = 3;
     this._perc = 3;
     this._careers = careers().createNew();
-    this._jobPath = 'none';
     this._karma = 50;
     this._creativity = 0;
     this._items = [];
@@ -31,8 +30,6 @@ class Player {
   get char(){return this._char}
 
   get perc(){return this._perc}
-
-  get jobPath(){return this._jobPath}
 
   get careers(){return this._careers}
   set careers(career){return this._careers = careers().load(career)}

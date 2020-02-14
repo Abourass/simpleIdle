@@ -5,11 +5,13 @@ class Careers{
   constructor(paths) {
     this._paths = paths;
     this._currentPath = 'none';
-    this._currentTitle = 'none';
-    this._currentLevel = 0;
   }
 
   get paths(){return this._paths}
+  get currentPath(){ return this._currentPath}
+  get currentPosition(){return this._currentPath._curPosition}
+  get currentLevel(){return this._currentPath._curLevel}
+
 
   listOfJobPaths = (stats, firstRun = null) => {
     const paths = [];
