@@ -1,10 +1,32 @@
 # Changelog
 
 <a name="1.0.0"></a>
-## 1.0.0 (2020-02-13)
+## 1.0.0 (2020-02-14)
 
 ### Added
 
+- ✨ Should now show next position on requirements hit [[539758f](https://github.com/Abourass/simpleIdle/commit/539758fdfb6f94d54ba2f613019b460d67a438ff)]
+- ✨ creating careers [[1802615](https://github.com/Abourass/simpleIdle/commit/1802615028e08a67e6f111354427943715b53cf4)]
+- ✨ Create correct markup for available positions [[e981d42](https://github.com/Abourass/simpleIdle/commit/e981d420c9351d74fe419d5f6a97486ca698370c)]
+- ✨ Create correct markup for available positions [[02bd196](https://github.com/Abourass/simpleIdle/commit/02bd19613ed919a8e7d72957137331edcc27369a)]
+- ✨ switching to jobPaths [[c6d0e3e](https://github.com/Abourass/simpleIdle/commit/c6d0e3e349f223ab417c8bd4ea89ffc2151fddd4)]
+- ✨ switching to jobPaths [[607df28](https://github.com/Abourass/simpleIdle/commit/607df28d4635be664cb64886094abd6545ffe014)]
+- ✨ switching to jobPaths [[01b3e20](https://github.com/Abourass/simpleIdle/commit/01b3e20a468e2b45da6ebdb7e544507619cb7ce3)]
+- ✨ switching to jobPaths [[a916c2f](https://github.com/Abourass/simpleIdle/commit/a916c2f643f3f07c5e91e8752506c99d03757ac8)]
+- ✨ switching to jobPaths [[20792f8](https://github.com/Abourass/simpleIdle/commit/20792f87eedbc1946f4dbd64af0c9b26e9b919e4)]
+- ✨ switching to jobPaths [[3da7aca](https://github.com/Abourass/simpleIdle/commit/3da7aca9e0dca9ac71087111223743a0b85ce161)]
+- ✨ switching to jobPaths [[4f548d9](https://github.com/Abourass/simpleIdle/commit/4f548d932806c3bac76a4550e2c3d3683f84a90b)]
+- ✨ switching to jobPaths [[ae8dc9a](https://github.com/Abourass/simpleIdle/commit/ae8dc9a9f0658bd966a47c9078297c704341ca39)]
+- ✨ switching to jobPaths [[127d762](https://github.com/Abourass/simpleIdle/commit/127d76267bb800d6189615131b6e2513e40710db)]
+- ✨ switching to jobPaths [[d0eaeab](https://github.com/Abourass/simpleIdle/commit/d0eaeab5fe2eedad6a4a4e63272883353cf434db)]
+- ✨ switching to jobPaths [[f150fbe](https://github.com/Abourass/simpleIdle/commit/f150fbe6eaee6233270cf8e942954a2ea66052ce)]
+- ✨ switching to jobPaths [[e65bdb5](https://github.com/Abourass/simpleIdle/commit/e65bdb5cd0c583ea02ac0a1d94d43bb05d8a6c03)]
+- ✨ Calulates jobLvl bonus to click rate [[471b3ea](https://github.com/Abourass/simpleIdle/commit/471b3eaa2ceb9c5ace8b87082c56074ebc0ae08e)]
+- ✨ Calculate bonus from items [[d3d68d2](https://github.com/Abourass/simpleIdle/commit/d3d68d2470d2414dacdc030d55b94bc742f0b4af)]
+- ✨ Adding tickSpeed param to perTick obj [[7215185](https://github.com/Abourass/simpleIdle/commit/72151858add15f7f02db87613e56787b6376424b)]
+- ✨ Adding loadShop fn [[a30d0d2](https://github.com/Abourass/simpleIdle/commit/a30d0d2460de57fdc521649d9220d38d00dee308)]
+- ✨ Adding delete player method [[22879ea](https://github.com/Abourass/simpleIdle/commit/22879eafd9c596438ad291a085383c66e1b91c5a)]
+- ✨ Adding delete player method [[cddfd8c](https://github.com/Abourass/simpleIdle/commit/cddfd8c5eaba1567f87b865bcd888b66eb68b795)]
 - ✨ Adding loadAJob() fn [[1127b35](https://github.com/Abourass/simpleIdle/commit/1127b35a537faf1e66192cfa98d6bf9aa12c9bb1)]
 - ✨ Adding Player.load() fn [[2b84ccb](https://github.com/Abourass/simpleIdle/commit/2b84ccb80a2e174a7ed51d0f8428eab881990a0f)]
 - ✨ Adding Player.load() fn [[18229fc](https://github.com/Abourass/simpleIdle/commit/18229fc0f901d36b608b58c62e9e0cced6e6b8b4)]
@@ -23,6 +45,8 @@
 
 ### Changed
 
+- 🎨 Split the item class [[bfb8d33](https://github.com/Abourass/simpleIdle/commit/bfb8d3396bb6a9e53f4665194f0ef4c76fc92d04)]
+- 🎨 Turned jobs into three classes [[d3874c0](https://github.com/Abourass/simpleIdle/commit/d3874c0f2d2b13cbb01317610bb3717eb4d4b6ef)]
 - 🎨 Making UI more cohesive [[5c31aec](https://github.com/Abourass/simpleIdle/commit/5c31aec2afae1ddacdb89931538fc509dfbd88e7)]
 - 🎨 Making UI more cohesive [[f96ed9b](https://github.com/Abourass/simpleIdle/commit/f96ed9be29db277a2975a5c71108d3fc272e3c13)]
 - 🎨 CHanging job into a level el [[4c5fa8f](https://github.com/Abourass/simpleIdle/commit/4c5fa8f798c06a21d4c1b996125c2aaa07d23970)]
@@ -31,6 +55,30 @@
 
 ### Fixed
 
+- 🐛 Fix issue with shop [[0fa75b6](https://github.com/Abourass/simpleIdle/commit/0fa75b6e006ee5a1699f1c9ac839daec811d9a92)]
+- 🐛 Fix issue with shop [[db901f7](https://github.com/Abourass/simpleIdle/commit/db901f7b35b2f740267f02d5498425e4efa71105)]
+- 🐛 Fix issue with shop [[7fc1480](https://github.com/Abourass/simpleIdle/commit/7fc1480c0b0f15499ddc4fba690fe412c4a9f030)]
+- 🐛 Fix issue with not increasing career exp correctly [[41f5b63](https://github.com/Abourass/simpleIdle/commit/41f5b63cbd799e3db17c0c8cbd24b272d42d2c5f)]
+- 🐛 Fix issue with not increasing career exp correctly [[86330bc](https://github.com/Abourass/simpleIdle/commit/86330bc0a69bfc06a851b7776542ce4c1626babf)]
+- 🐛 Fix issue with not increasing career exp correctly [[08b0241](https://github.com/Abourass/simpleIdle/commit/08b0241eddbce117292c990fab677e8cf62395f5)]
+- 🐛 Fix issue with not increasing career exp correctly [[50fb4ca](https://github.com/Abourass/simpleIdle/commit/50fb4ca40acb9a1676b6f98fc04038000ee23fe7)]
+- 🐛 Fix issue with not increasing career exp correctly [[313fa2f](https://github.com/Abourass/simpleIdle/commit/313fa2fc1e00125123904ffaeeaa2db073bfa92c)]
+- 🐛 look for currentCareer path before assigning exp [[a79aec3](https://github.com/Abourass/simpleIdle/commit/a79aec30edd81bfbff28a7da9ef9a5a9c116f168)]
+- 🐛 fixed broken data-attribute [[1cbf48b](https://github.com/Abourass/simpleIdle/commit/1cbf48b2b86d32dbedd1de36d157d386e07eff8d)]
+- 🐛 fixed broken data-attribute [[37baae7](https://github.com/Abourass/simpleIdle/commit/37baae7eeb7f27719a66e98aeecbfc639ab1f96c)]
+- 🐛 Fixing assignment of careerPath [[b3a1415](https://github.com/Abourass/simpleIdle/commit/b3a14153508a64293a24d9bf946cd29cac8fd4c9)]
+- 🐛 Fixing assignment of careerPath [[c287b5f](https://github.com/Abourass/simpleIdle/commit/c287b5f5f691bbf7055686077dbe99617107af12)]
+- 🐛 remove return from if statement [[0349b9b](https://github.com/Abourass/simpleIdle/commit/0349b9baaa444ee43f72786496c1da08bdbbff87)]
+- 🐛 Look for false statement not true [[b6cc738](https://github.com/Abourass/simpleIdle/commit/b6cc73890f5ee1289a065897db639c7e32f0d11b)]
+- 🐛 load All stats on load [[32f643c](https://github.com/Abourass/simpleIdle/commit/32f643ca0dff928b6609e5d7653080678c151753)]
+- 🐛 fix perClick [[a593046](https://github.com/Abourass/simpleIdle/commit/a5930463e143ce29a817f5e8945e4b0b13ca5273)]
+- 🐛 fixing job exp [[b3a4dce](https://github.com/Abourass/simpleIdle/commit/b3a4dcebf5dc12ddc381a23c2629615cc39e2730)]
+- 🐛 fixing job exp [[c19b398](https://github.com/Abourass/simpleIdle/commit/c19b39833ad1bcaba77460e436b80a321a73dc9c)]
+- 🐛 fix NaN check [[ab1c2fe](https://github.com/Abourass/simpleIdle/commit/ab1c2fe2abc8b10de78cdf61c4dac1ad0e06a768)]
+- 🐛 fix NaN check [[d2c9171](https://github.com/Abourass/simpleIdle/commit/d2c9171b29cec71d28414da729d17ffb8778bb97)]
+- 🐛 fix jobExp loading [[52fa7c9](https://github.com/Abourass/simpleIdle/commit/52fa7c9c82a9f7a285e60ed06db7af19d753ed77)]
+- 🐛 fix jobExp laoding [[bceb549](https://github.com/Abourass/simpleIdle/commit/bceb5494bb66e2d67671d86bb2b634f407318c8c)]
+- 🐛 fix jobExp laoding [[2a12fd9](https://github.com/Abourass/simpleIdle/commit/2a12fd9f823d72017c8ab91c6de2f5daf702bed2)]
 - 🐛 adding failsafe for bad loads [[59112b7](https://github.com/Abourass/simpleIdle/commit/59112b7cced00746187354d8b0ba9b44757d7459)]
 - 🐛 fix addJobExp on tick fn [[06a8f8a](https://github.com/Abourass/simpleIdle/commit/06a8f8a711440c12df547211d283e86bdff0fa3d)]
 - 🐛 Fixed issue with passing the correct info to nextTick [[854a7c5](https://github.com/Abourass/simpleIdle/commit/854a7c5afd8dd9090a17a177809b6f08119a7f47)]
@@ -49,6 +97,29 @@
 
 ### Miscellaneous
 
+-  removing logs [[e2690b4](https://github.com/Abourass/simpleIdle/commit/e2690b414ff4514eebc25ba1ee0398a260f2ac11)]
+-  Logging out jobPath to figure out why it wont fucking assign [[cb664ce](https://github.com/Abourass/simpleIdle/commit/cb664cea1ba8cb999a8bb24af14615d940aa6888)]
+-  Logging out jobPath to figure out why it wont fucking assign [[4b62473](https://github.com/Abourass/simpleIdle/commit/4b62473c22c7d82cc65def8d2cf499b5544858c7)]
+-  :sprakles: only return positions at the next level if the user has enough Exp [[3d68880](https://github.com/Abourass/simpleIdle/commit/3d688804550b00828d6ae4f0e86f8dd27d238b99)]
+-  Add more logs! [[e48a55e](https://github.com/Abourass/simpleIdle/commit/e48a55ef2d90cbe6a8c995f0ce654094cc39640f)]
+-  debugging [[110704d](https://github.com/Abourass/simpleIdle/commit/110704d384d77c5fdac0c7c53e572a91f23e5016)]
+-  debugging [[b39ed9b](https://github.com/Abourass/simpleIdle/commit/b39ed9b5ad8ed4b210bc7974381f0f74a842998c)]
+-  debugging [[f6a580d](https://github.com/Abourass/simpleIdle/commit/f6a580dd295ac92a64febb8de6ff8142070b77e4)]
+-  debugging [[43ecc25](https://github.com/Abourass/simpleIdle/commit/43ecc257064009ec03a9e9fdc2f599cb6527176c)]
+-  debugging [[019ce56](https://github.com/Abourass/simpleIdle/commit/019ce563e00575bec0fb87d4417df36e94c2e09b)]
+-  debugging [[c0b0877](https://github.com/Abourass/simpleIdle/commit/c0b087711878b98768bfed6e2411cd6a5612a3ca)]
+-  debugging [[7ed54c0](https://github.com/Abourass/simpleIdle/commit/7ed54c0c2146d80b5856449f0fabf1d5af3d9138)]
+-  debugging [[8532712](https://github.com/Abourass/simpleIdle/commit/8532712456cf79c4713de71c710e33df91e97280)]
+-  debugging [[9a515f9](https://github.com/Abourass/simpleIdle/commit/9a515f98a32f074c07ee37a0a2368dadf8946dc6)]
+-  debugging [[6f70e73](https://github.com/Abourass/simpleIdle/commit/6f70e73e021d4a5b6bf1ef77dfa3ac5a4630e15e)]
+-  debugging [[6a9ae8c](https://github.com/Abourass/simpleIdle/commit/6a9ae8c9ee47d219a2b0f025c4a33a435ae98a8b)]
+-  debugging [[74099fb](https://github.com/Abourass/simpleIdle/commit/74099fb8918d75a100e9744806078c42ca2c87e3)]
+-  debugging perClick [[cec75c2](https://github.com/Abourass/simpleIdle/commit/cec75c2fae3ba15db3acd3e37f3cea52961b0486)]
+-  :trash: delete user [[38fff26](https://github.com/Abourass/simpleIdle/commit/38fff26af4f912294ec8b22feabade12bbb4bcb4)]
+-  Delete user [[216496c](https://github.com/Abourass/simpleIdle/commit/216496c6f3419427e0ffb528edc98303a78974f6)]
+-  comment changes [[cfa02fa](https://github.com/Abourass/simpleIdle/commit/cfa02faa8d3b1bac4f2637074d4cb42943a23a13)]
+-  comment changes [[723729f](https://github.com/Abourass/simpleIdle/commit/723729f0c5fb24935edcbe8858afe47a0c8d3add)]
+-  updating CHANGELOG.md [[97ee6c2](https://github.com/Abourass/simpleIdle/commit/97ee6c2bb02b7677ea32f0be0e5a938faad10cd5)]
 -  updating CHANGELOG.md [[fba1c7e](https://github.com/Abourass/simpleIdle/commit/fba1c7e862015a3d31cbdae59c1e34ea30b56683)]
 -  debugging potential methods for showItems [[2b00d64](https://github.com/Abourass/simpleIdle/commit/2b00d64c16eeea23e0201af2c04b54b9256df68e)]
 -  updating CHANGELOG.md [[bbad3f6](https://github.com/Abourass/simpleIdle/commit/bbad3f6bb3c833c9bbc6e2f47fc35fdf97952238)]
