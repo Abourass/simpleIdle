@@ -78,22 +78,25 @@ class JobPath{
     let levels;
     if (firstRun){
       levels =  {
-        [0]: this.levels[0].positions.filter(job => {
-          Object.keys(job.requirements).forEach(req => {
-            if (!stats[req]){ return false; }
-            console.log(job, `${req}`, job.requirements[req], 'you', stats[req]);
-            if (stats[req] < job.requirements[req]){ console.log('you fail', 'job'); return false; }
-          });
-          return true;
-        }),
-        [1]: this._levels[1].positions.filter(job => {
-          Object.keys(job.requirements).forEach(req => {
-            if (!stats[req]){ return false; }
-            if (stats[req] < job.requirements[req]){ return false; }
-          });
-          return true;
-        })
-      }
+        0: [],
+        1: []
+      };
+
+      this.levels[0].positions.forEach(job => {
+        Object.keys(job.requirements).forEach(req => {
+          if (stats[req]){ return false; }
+          console.log(job, `${req}`, job.requirements[req], 'you', stats[req]);
+          if (stats[req] < job.requirements[req]){ console.log('you fail', 'job'); return false; }
+        });
+       return levels[0].push(job);
+      });
+      this._levels[1].positions.filter(job => {
+        Object.keys(job.requirements).forEach(req => {
+          if (!stats[req]){ return false; }
+          if (stats[req] < job.requirements[req]){ return false; }
+        });
+        return levels[1].push(job);
+      });
     } else {
       levels = {
         [this._curLevel]: this._levels[this._curLevel].positions.filter(job => {
