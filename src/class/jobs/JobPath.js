@@ -21,13 +21,16 @@ export default class JobPath{
 
   addExp(amountToIncreaseBy, player){
     let amountToMax = this._levels[this._curLevel].maxExp - this._exp;
-    if (amountToIncreaseBy <= amountToMax){
+    if (amountToIncreaseBy === amountToMax || amountToIncreaseBy < amountToMax){
       this._exp += amountToIncreaseBy;
-      amountToMax = this._levels[this._curLevel].maxExp - this._exp
+      amountToMax = this._levels[this._curLevel].maxExp - this._exp;
     } else {
       this._exp += amountToMax;
       amountToMax = 0;
     }
+
+    console.log('Exp now', this._exp)
+    console.log('amountToMax now', amountToMax)
 
     if (amountToMax === 0){
       listJobs(player)
@@ -54,7 +57,7 @@ export default class JobPath{
       }
     });
 
-    if (this.currentLevel !== 'none' && this.experience >= this.levels[this.currentLevel + 1].requirements.minExp){
+    if (this.currentLevel !== 'none' && this.experience >= this.levels[parseInt(this._curLevel + 1, 10)].requirements.minExp){
       firstRun == null ? levels[this.currentLevel + 1] = [] : levels[1] = [];
       this._levels[!firstRun ? Object.keys(levels)[1] : 1].positions.filter(job => {
         let canAdd = true;
