@@ -109,6 +109,50 @@ class JobPath{
   }
 }
 
+class Career{
+  constructor(paths) {
+    this._paths = paths;
+    this._currentPath = 'none';
+    this._currentTitle = 'none';
+    this._currentLevel = 0;
+  }
+
+  get paths(){return this._paths}
+
+  listOfJobPaths = (stats, firstRun = null) => {
+    const paths = [];
+
+    const compJobs = this._paths.computerPath.openJobs(stats, (firstRun == null ? null : true));
+    const foodJobs = this._paths.foodPath.openJobs(stats, (firstRun == null ? null : true));
+    const fameJobs = this._paths.famePath.openJobs(stats, (firstRun == null ? null : true));
+    const serviceJobs = this._paths.servicePath.openJobs(stats, (firstRun == null ? null : true));
+    const crimeJobs = this._paths.crimePath.openJobs(stats, (firstRun == null ? null : true));
+
+    if (compJobs[firstRun == null ? Object.keys(compJobs)[0] : 0].length >= 1){ paths.push({computer: compJobs}) }
+    if (foodJobs[firstRun == null ? Object.keys(foodJobs)[0] : 0].length >= 1){ paths.push({food: foodJobs}) }
+    if (fameJobs[firstRun == null ? Object.keys(fameJobs)[0] : 0].length >= 1){ paths.push({fame: fameJobs}) }
+    if (serviceJobs[firstRun == null ? Object.keys(serviceJobs)[0] : 0].length >= 1){ paths.push({service: serviceJobs}) }
+    if (crimeJobs[firstRun == null ? Object.keys(crimeJobs)[0] : 0].length >= 1){ paths.push({crime: crimeJobs}) }
+    return paths
+  };
+
+  searchPath(category){
+    let path;
+    switch (category){
+      case 'computer': { path = this._paths.computerPath; break; }
+      case 'food': { path = this._paths.foodPath; break; }
+      case 'fame': { path = this._paths.famePath; break;}
+      case 'service': { path = this._paths.servicePath; break; }
+      case 'crime': { path = this._paths.crimePath; break; }
+    }
+    return path;
+  };
+
+  searchJobs(category, level, title){
+    return this.searchPath(category)._levels[level].positions.filter(job => job.title === title)[0]
+  };
+}
+
 const computerPath = new JobPath({category: 'computer', levelsWithExpRequirements: {
     0: {minExp: 0, maxExp: 200, positions: []},
     1: {minExp: 200, maxExp: 500, positions: []},
@@ -157,37 +201,21 @@ crimePath.addPositions([
   new Position({title: 'Shoplifter', salary: 1, btnText: 'Steal pokemon cards', altText: 'This can\'t be a great idea', requirements: {int: 3, dex: 5, char: 3, perc: 4}})
 ], 0);
 
-export const listOfJobPaths = (stats, firstRun = null) => {
-  const paths = [];
+export const careers = () => {
+  const obj = {};
+  obj.createNew = () => {
+    return new Career({
+      computerPath: computerPath,
+      foodPath: foodPath,
+      famePath: famePath,
+      servicePath: servicePath,
+      crimePath: crimePath
+    });
+  };
 
-  const compJobs = computerPath.openJobs(stats, (firstRun == null ? null : true));
-  const foodJobs = foodPath.openJobs(stats, (firstRun == null ? null : true));
-  const fameJobs = famePath.openJobs(stats, (firstRun == null ? null : true));
-  const serviceJobs = servicePath.openJobs(stats, (firstRun == null ? null : true));
-  const crimeJobs = crimePath.openJobs(stats, (firstRun == null ? null : true));
+  obj.load = (careers) => { return new Career(careers) };
 
-  if (compJobs[firstRun == null ? Object.keys(compJobs)[0] : 0].length >= 1){ paths.push({computer: compJobs}) }
-  if (foodJobs[firstRun == null ? Object.keys(foodJobs)[0] : 0].length >= 1){ paths.push({food: foodJobs}) }
-  if (fameJobs[firstRun == null ? Object.keys(fameJobs)[0] : 0].length >= 1){ paths.push({fame: fameJobs}) }
-  if (serviceJobs[firstRun == null ? Object.keys(serviceJobs)[0] : 0].length >= 1){ paths.push({service: serviceJobs}) }
-  if (crimeJobs[firstRun == null ? Object.keys(crimeJobs)[0] : 0].length >= 1){ paths.push({crime: crimeJobs}) }
-  return paths
+  return obj
 };
 
-export const searchPath = (category) => {
-  let path;
-  switch (category){
-    case 'computer': { path = computerPath; break; }
-    case 'food': { path = foodPath; break; }
-    case 'fame': { path = famePath; break;}
-    case 'service': { path = servicePath; break; }
-    case 'crime': { path = crimePath; break; }
-  }
-  return path;
-};
-
-export const searchJobs = (category, level, title) => {
-  return searchPath(category)._levels[level].positions.filter(job => job.title === title)[0]
-};
-
-export default {listOfJobPaths, searchJobs, searchPath};
+export default careers;

@@ -1,4 +1,4 @@
-import {listOfJobPaths} from './Job.js';
+import careers from './Job.js';
 import {chooseAJob} from './Actions.js'
 
 class Player {
@@ -10,6 +10,7 @@ class Player {
     this._dex = 3;
     this._char = 3;
     this._perc = 3;
+    this._careers = careers().createNew();
     this._jobPath = 'none';
     this._karma = 50;
     this._creativity = 0;
@@ -33,11 +34,16 @@ class Player {
 
   get jobPath(){return this._jobPath}
 
+  get careers(){return this._careers}
+  set careers(career){return this._careers = careers().load(career)}
+
   get karma(){return this._karma}
 
   get creativity(){return this._creativity}
 
   get items(){return this._items}
+
+
 
   addItem(item){
     this._items.push(item);
@@ -60,12 +66,12 @@ class Player {
   }
 
   addJobExp(amount){
-    if (this.jobPath === 'none'){ return }
-    this.jobPath.addExp(amount);
+    if (this.careers === 'none'){ return }
+    this.careers._currentPath.addExp(amount);
   }
 
   chooseFirstJob(){
-    const potentialJobPaths = listOfJobPaths({int: this.int, dex: this.dex, char: this.char, perc: this.perc, creativity: this.creativity}, true);
+    const potentialJobPaths = this._careers.listOfJobPaths({int: this.int, dex: this.dex, char: this.char, perc: this.perc, creativity: this.creativity}, true);
     document.getElementById('statPointBlock').style.display = 'none';
     let btnBlockHTML = '';
 
@@ -117,10 +123,10 @@ class Player {
   load(playerObj){
     Object.keys(playerObj).forEach(key => {
       switch (key){
-        case '_job': {
-          this._job = listOfJobs().filter(job => job.title === playerObj._job.title)[0];
-          if (!isNaN(playerObj._job.experience._points)){
-            this.job.loadExp(playerObj._job.experience)
+        case '_careers': {
+          this._careers = careers().load(playerObj.careers);
+          if (!isNaN(playerObj._careers._jobPath.experience)){
+            this.jobPath.loadExp(playerObj._jobPath.experience)
           } else {
             this.job.addExp(0)
           }
