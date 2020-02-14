@@ -66,7 +66,7 @@ class Player {
   }
 
   addJobExp(amount){
-    if (this.careers === 'none'){ return }
+    if (this.careers._currentPath === 'none'){ return }
     this.careers._currentPath.addExp(amount);
   }
 
