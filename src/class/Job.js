@@ -104,8 +104,8 @@ class JobPath{
           levels[!firstRun ? Object.keys(levels)[1] : 1].push(job)
         }
       });
-      return levels;
     }
+    return levels;
   }
 }
 
