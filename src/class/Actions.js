@@ -1,7 +1,7 @@
 export const chooseAJob = (e, player) => {
   const target = e.currentTarget;
   player.careers._currentPath = player.careers.searchPath(target.dataset.jobCategory);
-  player.careers._currentPath.curLevel = 0;
+  player.careers._currentPath._curLevel = 0;
   player.careers._currentPath._curPosition = player.careers.searchJobs(target.dataset.jobCategory, target.dataset.jobLevel, target.dataset.title);
   player.careers._currentPath._exp = 0;
 
