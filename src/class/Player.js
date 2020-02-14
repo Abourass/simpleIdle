@@ -67,12 +67,9 @@ class Player {
   chooseFirstJob(){
     const potentialJobPaths = listOfJobPaths({int: this.int, dex: this.dex, char: this.char, perc: this.perc, creativity: this.creativity}, true);
     document.getElementById('statPointBlock').style.display = 'none';
-
-    console.log(potentialJobPaths);
     let btnBlockHTML = '';
 
     potentialJobPaths.forEach(jobPath => {
-      console.log('jobPath', jobPath);
       const path = Object.keys(jobPath)[0]; // Ex: computer, food, etc
       const positionLevels = Object.keys(jobPath[path]);
       let btnMarkup = '';

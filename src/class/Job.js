@@ -175,7 +175,6 @@ export const listOfJobPaths = (stats, firstRun = null) => {
 };
 
 export const searchPath = (category) => {
-  console.log('search path => category', category)
   let path;
   switch (category){
     case 'computer': { path = computerPath; break; }
@@ -190,7 +189,5 @@ export const searchPath = (category) => {
 export const searchJobs = (category, level, title) => {
   return searchPath(category)._levels[level].positions.filter(job => job.title === title)[0]
 };
-
-
 
 export default {listOfJobPaths, searchJobs, searchPath};
