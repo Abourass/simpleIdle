@@ -149,49 +149,21 @@ crimePath.addPositions([
   new Position({title: 'Shoplifter', salary: 1, btnText: 'Steal pokemon cards', altText: 'This can\'t be a great idea', requirements: {int: 3, dex: 5, char: 3, perc: 4}})
 ], 0);
 
-export const listOfJobPaths = (stats) => {
+const listOfJobPaths = (stats, firstRun = null) => {
   const paths = [];
 
-  if (computerPath.openJobs(stats)[0].levels.filter(lvl => lvl.requirements.int <= stats.int && lvl.requirements.dex <= stats.dex && lvl.requirements.char <= stats.char && lvl.requirements.perc <= stats.perc).length >= 1){
-    paths.push({computer: computerPath.openJobs(stats)[0].levels.filter(lvl => lvl.requirements.int <= stats.int && lvl.requirements.dex <= stats.dex && lvl.requirements.char <= stats.char && lvl.requirements.perc <= stats.perc)})
-  }
+  const compJobs = computerPath.openJobs(stats, (firstRun == null ? null : true));
+  const foodJobs = foodPath.openJobs(stats, (firstRun == null ? null : true));
+  const fameJobs = famePath.openJobs(stats, (firstRun == null ? null : true));
+  const serviceJobs = servicePath.openJobs(stats, (firstRun == null ? null : true));
+  const crimeJobs = crimePath.openJobs(stats, (firstRun == null ? null : true));
 
-  if (foodPath.openJobs(stats)[0].levels.filter(lvl => lvl.requirements.int <= stats.int && lvl.requirements.dex <= stats.dex && lvl.requirements.char <= stats.char && lvl.requirements.perc <= stats.perc).length >= 1){
-    paths.push({food: foodPath.openJobs(stats)[0].levels.filter(lvl => lvl.requirements.int <= stats.int && lvl.requirements.dex <= stats.dex && lvl.requirements.char <= stats.char && lvl.requirements.perc <= stats.perc)})
-  }
-
-  if (famePath.openJobs(stats)[0].levels.filter(lvl => lvl.requirements.int <= stats.int && lvl.requirements.dex <= stats.dex && lvl.requirements.char <= stats.char && lvl.requirements.perc <= stats.perc).length >= 1){
-    paths.push({fame: famePath.openJobs(stats)[0].levels.filter(lvl => lvl.requirements.int <= stats.int && lvl.requirements.dex <= stats.dex && lvl.requirements.char <= stats.char && lvl.requirements.perc <= stats.perc)})
-  }
-
-  if (servicePath.openJobs(stats)[0].levels.filter(lvl => lvl.requirements.int <= stats.int && lvl.requirements.dex <= stats.dex && lvl.requirements.char <= stats.char && lvl.requirements.perc <= stats.perc).length >= 1){
-    paths.push({service: servicePath.openJobs(stats)[0].levels.filter(lvl => lvl.requirements.int <= stats.int && lvl.requirements.dex <= stats.dex && lvl.requirements.char <= stats.char && lvl.requirements.perc <= stats.perc)})
-  }
-
-  if (crimePath.openJobs(stats)[0].levels.filter(lvl => lvl.requirements.int <= stats.int && lvl.requirements.dex <= stats.dex && lvl.requirements.char <= stats.char && lvl.requirements.perc <= stats.perc).length >= 1){
-    paths.push({crime: crimePath.openJobs(stats)[0].levels.filter(lvl => lvl.requirements.int <= stats.int && lvl.requirements.dex <= stats.dex && lvl.requirements.char <= stats.char && lvl.requirements.perc <= stats.perc)})
-  }
-
-  return paths;
+  if (compJobs[0].length >= 1){ paths.push({computer: {0: compJobs[0]}}) }
+  if (foodJobs[0].length >= 1){ paths.push({food: {0: foodJobs[0]}}) }
+  if (fameJobs[0].length >= 1){ paths.push({fame: {0: fameJobs[0]}}) }
+  if (serviceJobs[0].length >= 1){ paths.push({service: {0: serviceJobs[0]}}) }
+  if (crimeJobs[0].length >= 1){ paths.push({crime: {0: crimeJobs[0]}}) }
+  return paths
 };
 
-export const listOfInitialJobPaths = (stats) => {
-  const paths = [];
-
-  const compJobs = computerPath.openJobs(stats, true);
-  console.log(compJobs)
-  const foodJobs = foodPath.openJobs(stats, true);
-  const fameJobs = famePath.openJobs(stats, true);
-  const serviceJobs = servicePath.openJobs(stats, true);
-  const crimeJobs = crimePath.openJobs(stats, true);
-
-  if (compJobs[0].positions.length >= 1){ paths.push({computer: {0: compJobs[0].positions}}) }
-  if (foodJobs[0].position.length >= 1){ paths.push({food: {0: foodJobs[0].positions}}) }
-  if (fameJobs[0].position.length >= 1){ paths.push({fame: {0: fameJobs[0].positions}}) }
-  if (serviceJobs[0].position.length >= 1){ paths.push({service: {0: serviceJobs[0].positions}}) }
-  if (crimeJobs[0].position.length >= 1){ paths.push({crime: {0: crimeJobs[0].positions}}) }
-
-  return paths;
-};
-
-export default {listOfJobPaths, listOfInitialJobPaths};
+export default listOfJobPaths;

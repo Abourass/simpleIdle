@@ -1,4 +1,4 @@
-import {listOfInitialJobPaths} from './Job.js';
+import listOfJobPaths from './Job.js';
 import {chooseAJob} from './Actions.js'
 
 class Player {
@@ -65,7 +65,7 @@ class Player {
   }
 
   chooseFirstJob(){
-    const potentialJobPaths = listOfInitialJobPaths({int: this.int, dex: this.dex, char: this.char, perc: this.perc, creativity: this.creativity});
+    const potentialJobPaths = listOfJobPaths({int: this.int, dex: this.dex, char: this.char, perc: this.perc, creativity: this.creativity}, true);
     document.getElementById('statPointBlock').style.display = 'none';
 
     console.log(potentialJobPaths);
