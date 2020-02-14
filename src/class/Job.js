@@ -47,6 +47,10 @@ class JobPath{
   }
 
   get category(){ return this._category }
+  get levels(){ return this._levels }
+  get currentLevel(){ return this._curLevel }
+  get currentPosition(){ return this._curPosition }
+  get experience() {return this._exp }
 
   addPositions(arrayOfPositions, jobLevel){
     this._levels[jobLevel].positions = arrayOfPositions;
