@@ -1,4 +1,4 @@
-import JobPath from './JopPath.js';
+import JobPath from './JobPath.js';
 import Position from './Position.js';
 
 class Careers{
