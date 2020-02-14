@@ -1,6 +1,5 @@
 import Player from './class/Player.js'
 import Shop from './class/Shop.js'
-import {loadAJob} from './class/Actions.js';
 
 const engine = () => {
   let player;
