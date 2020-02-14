@@ -77,9 +77,9 @@ class JobPath{
   openJobs(stats, firstRun = null) {
     let levels;
     if (firstRun){
-      levels =  { 0: [], 1: []};
+      levels =  { 0: [] };
     } else {
-      levels = { [this.currentLevel]: [], [this.currentLevel + 1]: []}
+      levels = { [this.currentLevel]: []}
     }
     this.levels[firstRun == null ? Object.keys(levels)[0] : 0].positions.forEach(job => {
       let canAdd = true;
@@ -91,17 +91,21 @@ class JobPath{
         return levels[firstRun == null ? Object.keys(levels)[0] : 0].push(job)
       }
     });
-    this._levels[!firstRun ? Object.keys(levels)[1] : 1].positions.filter(job => {
-      let canAdd = true;
-      Object.keys(job.requirements).forEach(req => {
-        if (!stats[req]){ canAdd = false; }
-        if (stats[req] < job.requirements[req]){ canAdd = false; }
+
+    if (stats.exp >= this.levels[this.currentLevel + 1].requirements.minExp){
+      firstRun == null ? levels[this.currentLevel + 1] = [] : levels[1] = [];
+      this._levels[!firstRun ? Object.keys(levels)[1] : 1].positions.filter(job => {
+        let canAdd = true;
+        Object.keys(job.requirements).forEach(req => {
+          if (!stats[req]){ canAdd = false; }
+          if (stats[req] < job.requirements[req]){ canAdd = false; }
+        });
+        if (canAdd){
+          levels[!firstRun ? Object.keys(levels)[1] : 1].push(job)
+        }
       });
-      if (canAdd){
-        levels[!firstRun ? Object.keys(levels)[1] : 1].push(job)
-      }
-    });
-    return levels;
+      return levels;
+    }
   }
 }
 
