@@ -1,4 +1,4 @@
-import listOfJobPaths from './Job.js';
+import {listOfInitialJobPaths} from './Job.js';
 import {chooseAJob} from './Actions.js'
 
 class Player {
@@ -10,8 +10,9 @@ class Player {
     this._dex = 3;
     this._char = 3;
     this._perc = 3;
-    this._job = 'none';
+    this._jobPath = 'none';
     this._karma = 50;
+    this._creativity = 0;
     this._items = [];
     this.newTick = [];
   }
@@ -30,9 +31,11 @@ class Player {
 
   get perc(){return this._perc}
 
-  get job(){return this._job}
+  get jobPath(){return this._jobPath}
 
   get karma(){return this._karma}
+
+  get creativity(){return this._creativity}
 
   get items(){return this._items}
 
@@ -57,22 +60,23 @@ class Player {
   }
 
   addJobExp(amount){
-    if (this.job === 'none'){ return }
-    this.job.addExp(amount);
+    if (this.jobPath === 'none'){ return }
+    this.jobPath.addExp(amount);
   }
 
   chooseFirstJob(){
-    const potentialJobPaths = listOfJobPaths({int: this.int, dex: this.dex, char: this.char, perc: this.perc});
+    const potentialJobPaths = listOfInitialJobPaths({int: this.int, dex: this.dex, char: this.char, perc: this.perc, creativity: this.creativity});
     document.getElementById('statPointBlock').style.display = 'none';
 
     console.log(potentialJobPaths);
     let btnBlockHTML = '';
 
     potentialJobPaths.forEach(jobPath => {
+      console.log(jobPath)
       const key = Object.keys(jobPath)[0];
       const jobs = jobPath[key];
       let btnMarkup = '';
-      jobs.forEach(job => btnMarkup +=`<button class="button is-primary jobBtn" title="${job.altText}" data-job="${job.title}">${job.title} - ${job.salary}</button>`);
+      jobs.forEach(job => btnMarkup +=`<button class="button is-primary jobBtn" title="${job.altText}" data-job="${job.title}" data-jobCategory="${jobPath.category}">${job.title} - ${job.salary}</button>`);
       btnBlockHTML += `
       <div class="pathCategory buttons">${key}
         ${btnMarkup}
