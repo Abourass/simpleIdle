@@ -28,15 +28,11 @@ export default class JobPath{
       this._exp += amountToMax;
       amountToMax = 0;
     }
-
-    console.log('Exp now', this._exp)
-    console.log('amountToMax now', amountToMax)
-
-    if (amountToMax === 0){
-      listJobs(player)
-    }
-
     document.getElementById('jobExp').innerText = this._exp;
+    console.log('Exp now', this._exp);
+    console.log('amountToMax now', amountToMax);
+
+    if (amountToMax === 0){ listJobs(player) }
   }
 
   openJobs(stats, firstRun = null) {
@@ -46,6 +42,7 @@ export default class JobPath{
     } else {
       levels = { [this.currentLevel]: []}
     }
+
     this.levels[firstRun == null ? Object.keys(levels)[0] : 0].positions.forEach(job => {
       let canAdd = true;
       Object.keys(job.requirements).forEach(req => {
@@ -57,16 +54,17 @@ export default class JobPath{
       }
     });
 
-    if (this.currentLevel !== 'none' && this.experience >= this.levels[parseInt(this._curLevel + 1, 10)].requirements.minExp){
-      firstRun == null ? levels[this.currentLevel + 1] = [] : levels[1] = [];
-      this._levels[!firstRun ? Object.keys(levels)[1] : 1].positions.filter(job => {
+    let nextLvl = parseInt(this._curLevel + 1, 10);
+    if (this.currentLevel !== 'none' && this._exp === this._levels[nextLvl].minExp){
+      firstRun == null ? levels[nextLvl] = [] : levels[1] = [];
+      this._levels[!firstRun ? Object.keys(levels)[nextLvl] : 1].positions.filter(job => {
         let canAdd = true;
         Object.keys(job.requirements).forEach(req => {
           if (!stats[req]){ canAdd = false; }
           if (stats[req] < job.requirements[req]){ canAdd = false; }
         });
         if (canAdd){
-          levels[!firstRun ? Object.keys(levels)[1] : 1].push(job)
+          levels[!firstRun ? Object.keys(levels)[nextLvl] : 1].push(job)
         }
       });
     }
