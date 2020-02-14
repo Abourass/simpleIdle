@@ -79,7 +79,7 @@ class Player {
       let levelMarkup = '';
       positionLevels.forEach(lvl => {
         jobPath[path][lvl].forEach(position => {
-          btnMarkup += `<button class="button is-primary jobBtn" title="${position.altText}" data-title="${position.title}" data-jobLevel="${lvl}" data-job-category="${path}">${position.title} - ${position.salary}</button>`
+          btnMarkup += `<button class="button is-primary jobBtn" title="${position.altText}" data-title="${position.title}" data-job-level="${lvl}" data-job-category="${path}">${position.title} - ${position.salary}</button>`
         });
 
         levelMarkup +=`

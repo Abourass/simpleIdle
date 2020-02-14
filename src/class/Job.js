@@ -188,7 +188,7 @@ export const searchPath = (category) => {
 };
 
 export const searchJobs = (category, level, title) => {
-  return searchPath(category).levels[level].positions.filter(job => job.title === title)[0]
+  return searchPath(category)._levels[level].positions.filter(job => job.title === title)[0]
 };
 
 
