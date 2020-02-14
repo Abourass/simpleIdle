@@ -175,13 +175,16 @@ export const listOfJobPaths = (stats, firstRun = null) => {
 };
 
 export const searchPath = (category) => {
+  console.log('search path => category', category)
+  let path;
   switch (category){
-    case 'computer': { return computerPath; }
-    case 'food': { return foodPath; }
-    case 'fame': { return famePath;}
-    case 'service': { return servicePath; }
-    case 'crime': { return crimePath; }
+    case 'computer': { path = computerPath; break; }
+    case 'food': { path = foodPath; break; }
+    case 'fame': { path = famePath; break;}
+    case 'service': { path = servicePath; break; }
+    case 'crime': { path = crimePath; break; }
   }
+  return path;
 };
 
 export const searchJobs = (category, level, title) => {
