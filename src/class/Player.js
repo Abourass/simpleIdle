@@ -80,14 +80,13 @@ class Player {
       let levelMarkup = '';
       positionLevels.forEach(lvl => {
         jobPath[path][lvl].forEach(position => {
-          btnMarkup += `<button class="button is-primary jobBtn" title="${position.altText}" data-job="${position.title}" data-jobCategory="${jobPath.category}">${position.title} - ${position.salary}</button>`
+          btnMarkup += `<button class="button is-primary jobBtn" title="${position.altText}" data-title="${position.title}" data-jobLevel="${lvl}" data-jobCategory="${jobPath.category}">${position.title} - ${position.salary}</button>`
         });
 
         levelMarkup +=`
         <div class="levelCategory">${lvl}
           ${btnMarkup}
-        </div>
-`});
+        </div>`});
 
       btnBlockHTML += `
       <div class="pathCategory buttons">${path}
@@ -95,9 +94,7 @@ class Player {
       </div>
       `;
     });
-
     document.getElementById('controls').innerHTML = btnBlockHTML;
-
     document.querySelectorAll('.jobBtn').forEach(el => el.onclick = (e) => chooseAJob(e, this) )
   }
 

@@ -3,6 +3,7 @@ import {searchJobs, searchPath} from './Job.js';
 export const chooseAJob = (e, player) => {
   const target = e.currentTarget;
   player._jobPath = searchPath(target.dataset.jobCategory);
+  console.log(player);
   player._jobPath._curLevel = 0;
   player._jobPath._curPosition = searchJobs(target.dataset.jobCategory, target.dataset.jobLevel, target.dataset.title);
   player._jobPath._exp = 0;
