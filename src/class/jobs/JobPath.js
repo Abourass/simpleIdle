@@ -18,10 +18,10 @@ export default class JobPath{
   }
 
   addExp(amountToIncreaseBy){
-    let amountToMax = this.levels[this.currentLevel].maxExp - this._exp;
+    let amountToMax = this._levels[this._curLevel].maxExp - this._exp;
     if (amountToIncreaseBy <= amountToMax){
       this._exp += amountToIncreaseBy;
-      amountToMax = this.levels[this.currentLevel].maxExp - this._exp
+      amountToMax = this._levels[this._curLevel].maxExp - this._exp
     } else {
       this._exp += amountToMax;
       amountToMax = 0;
