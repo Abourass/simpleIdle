@@ -16,6 +16,36 @@ export const chooseAJob = (e, player) => {
   document.getElementById('jobControl').onclick = () => { player.update('money', 'add', player.careers.currentPath.currentPosition.salary); player.careers.currentPath.addExp(10);}
 };
 
+export const listJobs = (player, firstRun) => {
+    const potentialJobPaths = player._careers.listOfJobPaths({int: player.int, dex: player.dex, char: player.char, perc: player.perc, creativity: player.creativity}, firstRun);
+    document.getElementById('statPointBlock').style.display = 'none';
+    let btnBlockHTML = '';
+
+    potentialJobPaths.forEach(jobPath => {
+      const path = Object.keys(jobPath)[0]; // Ex: computer, food, etc
+      const positionLevels = Object.keys(jobPath[path]);
+      let btnMarkup = '';
+      let levelMarkup = '';
+      positionLevels.forEach(lvl => {
+        jobPath[path][lvl].forEach(position => {
+          btnMarkup += `<button class="button is-primary jobBtn" title="${position.altText}" data-title="${position.title}" data-job-level="${lvl}" data-job-category="${path}">${position.title} - ${position.salary}</button>`
+        });
+
+        levelMarkup +=`
+        <div class="levelCategory">${lvl}
+          ${btnMarkup}
+        </div>`});
+
+      btnBlockHTML += `
+      <div class="pathCategory buttons">${path}
+        ${levelMarkup}
+      </div>
+      `;
+    });
+    document.getElementById('controls').innerHTML = btnBlockHTML;
+    document.querySelectorAll('.jobBtn').forEach(el => el.onclick = (e) => chooseAJob(e, player))
+};
+
 export const loadAJob = (player) => {
   document.getElementById('controls').innerHTML = `
     <button class="btn button is-success" id="jobControl">${player.careers.currentPath.currentPosition.btnText} - $${player.careers.currentPath.currentPosition.salary}</button>
@@ -28,4 +58,4 @@ export const loadAJob = (player) => {
   document.getElementById('deletePlayerControl').onclick = () => { localStorage.removeItem('player'); location.reload(); }
 };
 
-export default {chooseAJob, loadAJob}
+export default {chooseAJob, listJobs, loadAJob}

@@ -1,5 +1,5 @@
 import careers from './jobs/Careers.js';
-import {chooseAJob} from './Actions.js'
+import {listJobs} from './Actions.js'
 
 class Player {
   constructor() {
@@ -62,37 +62,7 @@ class Player {
 
   addJobExp(amount){
     if (this.careers._currentPath === 'none'){ return }
-    this.careers._currentPath.addExp(amount);
-  }
-
-  chooseFirstJob(){
-    const potentialJobPaths = this._careers.listOfJobPaths({int: this.int, dex: this.dex, char: this.char, perc: this.perc, creativity: this.creativity}, true);
-    document.getElementById('statPointBlock').style.display = 'none';
-    let btnBlockHTML = '';
-
-    potentialJobPaths.forEach(jobPath => {
-      const path = Object.keys(jobPath)[0]; // Ex: computer, food, etc
-      const positionLevels = Object.keys(jobPath[path]);
-      let btnMarkup = '';
-      let levelMarkup = '';
-      positionLevels.forEach(lvl => {
-        jobPath[path][lvl].forEach(position => {
-          btnMarkup += `<button class="button is-primary jobBtn" title="${position.altText}" data-title="${position.title}" data-job-level="${lvl}" data-job-category="${path}">${position.title} - ${position.salary}</button>`
-        });
-
-        levelMarkup +=`
-        <div class="levelCategory">${lvl}
-          ${btnMarkup}
-        </div>`});
-
-      btnBlockHTML += `
-      <div class="pathCategory buttons">${path}
-        ${levelMarkup}
-      </div>
-      `;
-    });
-    document.getElementById('controls').innerHTML = btnBlockHTML;
-    document.querySelectorAll('.jobBtn').forEach(el => el.onclick = (e) => chooseAJob(e, this) )
+    this.careers._currentPath.addExp(amount, this);
   }
 
   init(){
@@ -109,10 +79,10 @@ class Player {
       <button class="btn button is-primary" id="incCharisma">Increase Charisma</button>
       <button class="btn button is-primary" id="incPerception">Increase Perception</button>
     `;
-    document.getElementById('incIntelligence').onclick = () => this.increaseStat('int', () => this.chooseFirstJob());
-    document.getElementById('incDexterity').onclick = () => this.increaseStat('dex', () => this.chooseFirstJob());
-    document.getElementById('incCharisma').onclick = () => this.increaseStat('char', () => this.chooseFirstJob());
-    document.getElementById('incPerception').onclick = () => this.increaseStat('perc', () => this.chooseFirstJob());
+    document.getElementById('incIntelligence').onclick = () => this.increaseStat('int', () => listJobs(this, true));
+    document.getElementById('incDexterity').onclick = () => this.increaseStat('dex', () => listJobs(this, true));
+    document.getElementById('incCharisma').onclick = () => this.increaseStat('char', () => listJobs(this, true));
+    document.getElementById('incPerception').onclick = () => this.increaseStat('perc', () => listJobs(this, true));
   }
 
   load(playerObj){

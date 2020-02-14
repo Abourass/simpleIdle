@@ -1,3 +1,5 @@
+import {listJobs} from '../Actions.js';
+
 export default class JobPath{
   constructor({category, levelsWithExpRequirements} = {}) {
     this._category = category;
@@ -17,7 +19,7 @@ export default class JobPath{
     arrayOfPositions.forEach(pos => this._levels[jobLevel].positions.push(pos))
   }
 
-  addExp(amountToIncreaseBy){
+  addExp(amountToIncreaseBy, player){
     let amountToMax = this._levels[this._curLevel].maxExp - this._exp;
     if (amountToIncreaseBy <= amountToMax){
       this._exp += amountToIncreaseBy;
@@ -27,11 +29,11 @@ export default class JobPath{
       amountToMax = 0;
     }
 
-    document.getElementById('jobExp').innerText = this._exp;
-
     if (amountToMax === 0){
-      // loadPotentialJobs
+      listJobs(player)
     }
+
+    document.getElementById('jobExp').innerText = this._exp;
   }
 
   openJobs(stats, firstRun = null) {
