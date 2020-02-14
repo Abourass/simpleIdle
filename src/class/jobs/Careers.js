@@ -13,20 +13,20 @@ class Careers{
   get currentLevel(){return this._currentPath._curLevel}
 
 
-  listOfJobPaths = (stats, firstRun = null) => {
+  listOfJobPaths = (stats) => {
     const paths = [];
 
-    const compJobs = this._paths.computerPath.openJobs(stats, (firstRun == null ? null : true));
-    const foodJobs = this._paths.foodPath.openJobs(stats, (firstRun == null ? null : true));
-    const fameJobs = this._paths.famePath.openJobs(stats, (firstRun == null ? null : true));
-    const serviceJobs = this._paths.servicePath.openJobs(stats, (firstRun == null ? null : true));
-    const crimeJobs = this._paths.crimePath.openJobs(stats, (firstRun == null ? null : true));
+    const compJobs = this._paths.computerPath.openJobs(stats);
+    const foodJobs = this._paths.foodPath.openJobs(stats);
+    const fameJobs = this._paths.famePath.openJobs(stats);
+    const serviceJobs = this._paths.servicePath.openJobs(stats);
+    const crimeJobs = this._paths.crimePath.openJobs(stats);
 
-    if (compJobs[firstRun == null ? Object.keys(compJobs)[0] : 0].length >= 1){ paths.push({computer: compJobs}) }
-    if (foodJobs[firstRun == null ? Object.keys(foodJobs)[0] : 0].length >= 1){ paths.push({food: foodJobs}) }
-    if (fameJobs[firstRun == null ? Object.keys(fameJobs)[0] : 0].length >= 1){ paths.push({fame: fameJobs}) }
-    if (serviceJobs[firstRun == null ? Object.keys(serviceJobs)[0] : 0].length >= 1){ paths.push({service: serviceJobs}) }
-    if (crimeJobs[firstRun == null ? Object.keys(crimeJobs)[0] : 0].length >= 1){ paths.push({crime: crimeJobs}) }
+    if (compJobs[this._currentPath !== 'none' ? this.paths.computerPath._curLevel : 0].length >= 1){ paths.push({computer: compJobs}) }
+    if (foodJobs[this._currentPath !== 'none' ? this.paths.foodPath._curLevel : 0].length >= 1){ paths.push({food: foodJobs}) }
+    if (fameJobs[this._currentPath !== 'none' ? this.paths.famePath._curLevel : 0].length >= 1){ paths.push({fame: fameJobs}) }
+    if (serviceJobs[this._currentPath !== 'none' ? this.paths.servicePath._curLevel : 0].length >= 1){ paths.push({service: serviceJobs}) }
+    if (crimeJobs[this._currentPath !== 'none' ? this.paths.crimePath._curLevel : 0].length >= 1){ paths.push({crime: crimeJobs}) }
     return paths
   };
 

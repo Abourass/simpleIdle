@@ -16,8 +16,8 @@ export const chooseAJob = (e, player) => {
   document.getElementById('jobControl').onclick = () => { player.update('money', 'add', player.careers.currentPath.currentPosition.salary); player.careers.currentPath.addExp(10, player);}
 };
 
-export const listJobs = (player, firstRun) => {
-    const potentialJobPaths = player._careers.listOfJobPaths({int: player.int, dex: player.dex, char: player.char, perc: player.perc, creativity: player.creativity}, firstRun);
+export const listJobs = (player) => {
+    const potentialJobPaths = player._careers.listOfJobPaths({int: player.int, dex: player.dex, char: player.char, perc: player.perc, creativity: player.creativity});
     document.getElementById('statPointBlock').style.display = 'none';
     let btnBlockHTML = '';
 

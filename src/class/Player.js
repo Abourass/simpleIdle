@@ -79,10 +79,10 @@ class Player {
       <button class="btn button is-primary" id="incCharisma">Increase Charisma</button>
       <button class="btn button is-primary" id="incPerception">Increase Perception</button>
     `;
-    document.getElementById('incIntelligence').onclick = () => this.increaseStat('int', () => listJobs(this, true));
-    document.getElementById('incDexterity').onclick = () => this.increaseStat('dex', () => listJobs(this, true));
-    document.getElementById('incCharisma').onclick = () => this.increaseStat('char', () => listJobs(this, true));
-    document.getElementById('incPerception').onclick = () => this.increaseStat('perc', () => listJobs(this, true));
+    document.getElementById('incIntelligence').onclick = () => this.increaseStat('int', () => listJobs(this));
+    document.getElementById('incDexterity').onclick = () => this.increaseStat('dex', () => listJobs(this));
+    document.getElementById('incCharisma').onclick = () => this.increaseStat('char', () => listJobs(this));
+    document.getElementById('incPerception').onclick = () => this.increaseStat('perc', () => listJobs(this));
   }
 
   load(playerObj){
