@@ -81,8 +81,8 @@ class JobPath{
         [0]: this.levels[0].positions.filter(job => {
           Object.keys(job.requirements).forEach(req => {
             if (!stats[req]){ return false; }
-            if (stats[req] < job.requirements[req]){ return false; }
-            console.log(`${req}`, job.requirements[req], 'you', stats[req])
+            console.log(job, `${req}`, job.requirements[req], 'you', stats[req]);
+            if (stats[req] < job.requirements[req]){ console.log('you fail', 'job'); return false; }
           });
           return true;
         }),
