@@ -158,11 +158,11 @@ const listOfJobPaths = (stats, firstRun = null) => {
   const serviceJobs = servicePath.openJobs(stats, (firstRun == null ? null : true));
   const crimeJobs = crimePath.openJobs(stats, (firstRun == null ? null : true));
 
-  if (compJobs[0].length >= 1){ paths.push({computer: {0: compJobs[0]}}) }
-  if (foodJobs[0].length >= 1){ paths.push({food: {0: foodJobs[0]}}) }
-  if (fameJobs[0].length >= 1){ paths.push({fame: {0: fameJobs[0]}}) }
-  if (serviceJobs[0].length >= 1){ paths.push({service: {0: serviceJobs[0]}}) }
-  if (crimeJobs[0].length >= 1){ paths.push({crime: {0: crimeJobs[0]}}) }
+  if (compJobs[firstRun == null ? Object.keys(compJobs)[0] : 0].length >= 1){ paths.push({computer: compJobs}) }
+  if (foodJobs[firstRun == null ? Object.keys(foodJobs)[0] : 0].length >= 1){ paths.push({food: foodJobs}) }
+  if (fameJobs[firstRun == null ? Object.keys(fameJobs)[0] : 0].length >= 1){ paths.push({fame: fameJobs}) }
+  if (serviceJobs[firstRun == null ? Object.keys(serviceJobs)[0] : 0].length >= 1){ paths.push({service: serviceJobs}) }
+  if (crimeJobs[firstRun == null ? Object.keys(crimeJobs)[0] : 0].length >= 1){ paths.push({crime: crimeJobs}) }
   return paths
 };
 
