@@ -72,7 +72,7 @@ class Player {
     let btnBlockHTML = '';
 
     potentialJobPaths.forEach(jobPath => {
-      console.log(jobPath)
+      console.log(jobPath);
       const key = Object.keys(jobPath)[0];
       const jobs = jobPath[key];
       let btnMarkup = '';
