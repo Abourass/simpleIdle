@@ -72,13 +72,15 @@ class Player {
     let btnBlockHTML = '';
 
     potentialJobPaths.forEach(jobPath => {
-      console.log(jobPath);
-      const key = Object.keys(jobPath)[0];
-      const jobs = jobPath[key];
+      console.log('jobPath', jobPath);
+      const path = Object.keys(jobPath)[0]; // Ex: computer, food, etc
+      console.log('path', path);
+      const positions = jobPath[path];
+      console.log('positions', positions);
       let btnMarkup = '';
-      jobs.forEach(job => btnMarkup +=`<button class="button is-primary jobBtn" title="${job.altText}" data-job="${job.title}" data-jobCategory="${jobPath.category}">${job.title} - ${job.salary}</button>`);
+      positions.forEach(job => btnMarkup +=`<button class="button is-primary jobBtn" title="${job.altText}" data-job="${job.title}" data-jobCategory="${jobPath.category}">${job.title} - ${job.salary}</button>`);
       btnBlockHTML += `
-      <div class="pathCategory buttons">${key}
+      <div class="pathCategory buttons">${path}
         ${btnMarkup}
       </div>
       `;
