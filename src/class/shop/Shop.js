@@ -7,6 +7,8 @@ class Shop{
     ]
   }
 
+  get items(){return this._items}
+
   buyItem(e, player) {
     const target = e.currentTarget;
     const item = this._items.filter(item => item.title === target.dataset.title)[0];
@@ -19,7 +21,7 @@ class Shop{
   }
 
   showItems(player){
-    const items = this._items.filter(item => item.requirement.jobCategory === player.careers.currentPath.category && item.requirement.jobLevel <= player.careers.currentPath.currentLevel);
+    const items = this.items.filter(item => item.requirement.jobCategory === player.careers.currentPath.category && item.requirement.jobLevel <= player.careers.currentPath.currentLevel);
     let itemMarkup = '';
     items.forEach(item => itemMarkup += `
     <a class="panel-block itemChoice" id="${item.title.replace(/ /g, "_")}Block" data-title="${item.title}">
