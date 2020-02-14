@@ -53,7 +53,7 @@ class JobPath{
   get experience() {return this._exp }
 
   addPositions(arrayOfPositions, jobLevel){
-    this._levels[jobLevel].positions = arrayOfPositions;
+    arrayOfPositions.forEach(pos => this._levels[jobLevel].positions.push(pos))
   }
 
   addExp(amountToIncreaseBy){
@@ -117,13 +117,11 @@ class JobPath{
   }
 }
 
-const defaultLevelRequirements = {
-  0: {minExp: 0, maxExp: 200, positions: []},
-  1: {minExp: 200, maxExp: 500, positions: []},
-  2: {minExp: 500, maxExp: 1200, positions: []},
-};
-
-const computerPath = new JobPath({category: 'computer', levelsWithExpRequirements: defaultLevelRequirements});
+const computerPath = new JobPath({category: 'computer', levelsWithExpRequirements: {
+    0: {minExp: 0, maxExp: 200, positions: []},
+    1: {minExp: 200, maxExp: 500, positions: []},
+    2: {minExp: 500, maxExp: 1200, positions: []},
+  }});
 computerPath.addPositions([new Position({title: 'Freelance Coder', salary: 1, btnText: 'Code Idle Games', altText: 'Make those numbers go up', requirements: {int: 5, dex: 3, char: 3, perc: 3}})], 0);
 computerPath.addPositions([new Position({title: 'Code Monkey', salary: 2, btnText: 'Code Login Page', altText: 'Crush your imagination', requirements: {int: 6, dex: 3, char: 3, perc: 3}})], 1);
 computerPath.addPositions([
@@ -133,7 +131,11 @@ computerPath.addPositions([
 
 console.log(computerPath)
 
-const foodPath = new JobPath({category: 'food', levelsWithExpRequirements: defaultLevelRequirements});
+const foodPath = new JobPath({category: 'food', levelsWithExpRequirements: {
+    0: {minExp: 0, maxExp: 200, positions: []},
+    1: {minExp: 200, maxExp: 500, positions: []},
+    2: {minExp: 500, maxExp: 1200, positions: []},
+  }});
 foodPath.addPositions([
   new Position({title: 'Fry Cook', salary: 1, btnText: 'Flip Burgers', altText: 'Get greasy', requirements: {int: 3, dex: 3, char: 3, perc: 3}}),
   new Position({title: 'Barista', salary: 1, btnText: 'Brew Coffee', altText: 'Get steamy', requirements: {int: 3, dex: 4, char: 4, perc: 3}})
@@ -141,16 +143,28 @@ foodPath.addPositions([
 
 console.log(foodPath)
 
-const famePath = new JobPath({category: 'fame', levelsWithExpRequirements: defaultLevelRequirements});
+const famePath = new JobPath({category: 'fame', levelsWithExpRequirements: {
+    0: {minExp: 0, maxExp: 200, positions: []},
+    1: {minExp: 200, maxExp: 500, positions: []},
+    2: {minExp: 500, maxExp: 1200, positions: []},
+  }});
 famePath.addPositions([new Position({title: 'Video Game Streamer', salary: 1, btnText: 'Play Super Mario Odyssey', altText: 'It\'sa me.. carpal tunnel', requirements: {int: 3, dex: 3, char: 6, perc: 3}})], 0);
 famePath.addPositions([new Position({title: 'Make a speedrunning series', salary: 2, btnText: 'Go fast', altText: 'Don\'t forget to use the bounce hack', requirements: {int: 3, dex: 3, char: 7, perc: 3}})], 1);
 
-const servicePath = new JobPath({category: 'service', levelsWithExpRequirements: defaultLevelRequirements});
+const servicePath = new JobPath({category: 'service', levelsWithExpRequirements: {
+    0: {minExp: 0, maxExp: 200, positions: []},
+    1: {minExp: 200, maxExp: 500, positions: []},
+    2: {minExp: 500, maxExp: 1200, positions: []},
+  }});
 servicePath.addPositions([
   new Position({title: 'Bank Teller', salary: 1, btnText: 'Handle Money', altText: 'Paper Cuts are a real worry', requirements: {int: 3, dex: 3, char: 5, perc: 3}})
 ], 0);
 
-const crimePath = new JobPath({category: 'crime', levelsWithExpRequirements: defaultLevelRequirements});
+const crimePath = new JobPath({category: 'crime', levelsWithExpRequirements: {
+    0: {minExp: 0, maxExp: 200, positions: []},
+    1: {minExp: 200, maxExp: 500, positions: []},
+    2: {minExp: 500, maxExp: 1200, positions: []},
+  }});
 crimePath.addPositions([
   new Position({title: 'Shoplifter', salary: 1, btnText: 'Steal pokemon cards', altText: 'This can\'t be a great idea', requirements: {int: 3, dex: 5, char: 3, perc: 4}})
 ], 0);
