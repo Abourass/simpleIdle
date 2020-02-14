@@ -76,14 +76,13 @@ class JobPath{
 
   openJobs(stats, firstRun = null) {
     let levels;
-    console.log('Category', this.category)
     if (firstRun){
       levels =  {
         [0]: this.levels[0].positions.filter(job => {
-          console.log('position', job);
           Object.keys(job.requirements).forEach(req => {
             if (!stats[req]){ return false; }
             if (stats[req] < job.requirements[req]){ return false; }
+            console.log(`${req}`, job.requirements[req], 'you', stats[req])
           });
           return true;
         }),
@@ -129,8 +128,6 @@ computerPath.addPositions([
   new Position({title: 'Jr. Back End Dev', salary: 3, btnText: 'Make database schema', altText: '{firstName: String}', requirements: {int: 7, dex: 3, char: 3, perc: 4}}),
 ], 2);
 
-console.log(computerPath)
-
 const foodPath = new JobPath({category: 'food', levelsWithExpRequirements: {
     0: {minExp: 0, maxExp: 200, positions: []},
     1: {minExp: 200, maxExp: 500, positions: []},
@@ -140,8 +137,6 @@ foodPath.addPositions([
   new Position({title: 'Fry Cook', salary: 1, btnText: 'Flip Burgers', altText: 'Get greasy', requirements: {int: 3, dex: 3, char: 3, perc: 3}}),
   new Position({title: 'Barista', salary: 1, btnText: 'Brew Coffee', altText: 'Get steamy', requirements: {int: 3, dex: 4, char: 4, perc: 3}})
 ], 0);
-
-console.log(foodPath)
 
 const famePath = new JobPath({category: 'fame', levelsWithExpRequirements: {
     0: {minExp: 0, maxExp: 200, positions: []},
