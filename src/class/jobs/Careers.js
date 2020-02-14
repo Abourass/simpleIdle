@@ -22,11 +22,20 @@ class Careers{
     const serviceJobs = this._paths.servicePath.openJobs(stats);
     const crimeJobs = this._paths.crimePath.openJobs(stats);
 
-    if (compJobs[this._currentPath !== 'none' ? this.paths.computerPath._curLevel : 0].length >= 1){ paths.push({computer: compJobs}) }
-    if (foodJobs[this._currentPath !== 'none' ? this.paths.foodPath._curLevel : 0].length >= 1){ paths.push({food: foodJobs}) }
-    if (fameJobs[this._currentPath !== 'none' ? this.paths.famePath._curLevel : 0].length >= 1){ paths.push({fame: fameJobs}) }
-    if (serviceJobs[this._currentPath !== 'none' ? this.paths.servicePath._curLevel : 0].length >= 1){ paths.push({service: serviceJobs}) }
-    if (crimeJobs[this._currentPath !== 'none' ? this.paths.crimePath._curLevel : 0].length >= 1){ paths.push({crime: crimeJobs}) }
+    if (this._currentPath !== 'none'){
+      if (compJobs[this.paths.computerPath._curLevel !== 'none' ? this.paths.computerPath._curLevel : 0].length >= 1){ paths.push({computer: compJobs}) }
+      if (foodJobs[this.paths.foodPath._curLevel !== 'none' ? this.paths.foodPath._curLevel : 0].length >= 1){ paths.push({food: foodJobs}) }
+      if (fameJobs[this.paths.famePath._curLevel !== 'none' ? this.paths.famePath._curLevel : 0].length >= 1){ paths.push({fame: fameJobs}) }
+      if (serviceJobs[this.paths.servicePath._curLevel !== 'none' ? this.paths.servicePath._curLevel : 0].length >= 1){ paths.push({service: serviceJobs}) }
+      if (crimeJobs[this.paths.crimePath._curLevel !== 'none' ? this.paths.crimePath._curLevel : 0].length >= 1){ paths.push({crime: crimeJobs}) }
+    } else {
+      if (compJobs[0].length >= 1){ paths.push({computer: compJobs}) }
+      if (foodJobs[0].length >= 1){ paths.push({food: foodJobs}) }
+      if (fameJobs[0].length >= 1){ paths.push({fame: fameJobs}) }
+      if (serviceJobs[0].length >= 1){ paths.push({service: serviceJobs}) }
+      if (crimeJobs[0].length >= 1){ paths.push({crime: crimeJobs}) }
+    }
+
     return paths
   };
 
