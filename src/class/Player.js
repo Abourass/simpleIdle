@@ -1,4 +1,4 @@
-import careers from './Job.js';
+import careers from './jobs/Careers.js';
 import {chooseAJob} from './Actions.js'
 
 class Player {
@@ -42,8 +42,6 @@ class Player {
   get creativity(){return this._creativity}
 
   get items(){return this._items}
-
-
 
   addItem(item){
     this._items.push(item);
