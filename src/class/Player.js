@@ -1,4 +1,4 @@
-import listOfJobPaths from './Job.js';
+import {listOfJobPaths} from './Job.js';
 import {chooseAJob} from './Actions.js'
 
 class Player {

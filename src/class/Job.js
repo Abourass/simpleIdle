@@ -157,7 +157,7 @@ crimePath.addPositions([
   new Position({title: 'Shoplifter', salary: 1, btnText: 'Steal pokemon cards', altText: 'This can\'t be a great idea', requirements: {int: 3, dex: 5, char: 3, perc: 4}})
 ], 0);
 
-const listOfJobPaths = (stats, firstRun = null) => {
+export const listOfJobPaths = (stats, firstRun = null) => {
   const paths = [];
 
   const compJobs = computerPath.openJobs(stats, (firstRun == null ? null : true));
@@ -174,4 +174,20 @@ const listOfJobPaths = (stats, firstRun = null) => {
   return paths
 };
 
-export default listOfJobPaths;
+export const searchPath = (category) => {
+  switch (category){
+    case 'computer': { return computerPath; }
+    case 'food': { return foodPath; }
+    case 'fame': { return famePath;}
+    case 'service': { return servicePath; }
+    case 'crime': { return crimePath; }
+  }
+};
+
+export const searchJobs = (category, level, title) => {
+  return searchPath(category).levels[level].positions.filter(job => job.title === title)[0]
+};
+
+
+
+export default {listOfJobPaths, searchJobs, searchPath};

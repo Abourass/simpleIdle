@@ -1,10 +1,10 @@
-import listOfJobPaths from './Job.js';
+import {searchJobs, searchPath} from './Job.js';
 
 export const chooseAJob = (e, player) => {
   const target = e.currentTarget;
-  player._jobPath = listOfJobPaths({int: player.int, dex: player.dex, char: player.char, perc: player.perc, creativity: player.creativity}, true).filter(jobCategory => jobCategory.category === target.dataset.jobCategory);
+  player._jobPath = searchPath(target.dataset.jobCategory);
   player._jobPath._curLevel = 0;
-  player._jobPath._curPosition = player.jobPath.position.filter(position => position.title === target.dataset.job)[0];
+  player._jobPath._curPosition = searchJobs(target.dataset.jobCategory, target.dataset.jobLevel, target.dataset.title);
   player._jobPath._exp = 0;
 
   document.getElementById('controls').innerHTML = `
