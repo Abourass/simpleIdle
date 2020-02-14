@@ -92,7 +92,7 @@ class JobPath{
       }
     });
 
-    if (stats.exp >= this.levels[this.currentLevel + 1].requirements.minExp){
+    if (this.experience >= this.levels[this.currentLevel + 1].requirements.minExp){
       firstRun == null ? levels[this.currentLevel + 1] = [] : levels[1] = [];
       this._levels[!firstRun ? Object.keys(levels)[1] : 1].positions.filter(job => {
         let canAdd = true;
