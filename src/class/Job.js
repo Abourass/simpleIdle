@@ -179,6 +179,7 @@ export const listOfInitialJobPaths = (stats) => {
   const paths = [];
 
   const compJobs = computerPath.openJobs(stats, true);
+  console.log(compJobs)
   const foodJobs = foodPath.openJobs(stats, true);
   const fameJobs = famePath.openJobs(stats, true);
   const serviceJobs = servicePath.openJobs(stats, true);
