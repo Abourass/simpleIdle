@@ -33,7 +33,7 @@ const engine = () => {
 
   window.setInterval(() => {
     if (typeof player === 'object'){
-      if(player.careers !== 'none'){ Shop.showItems(player); }                         // show Items in the shop
+      if(player.careers.currentPath !== 'none'){ Shop.showItems(player); }                         // show Items in the shop
       if (player.newTick.length >= 1){                                             // Is there new perTick values?
         const valuesToAdd = player.newTick[0];                                     // Grab the first perTick object
         Object.keys(valuesToAdd).forEach(key => perTick[key] += valuesToAdd[key]); // Increase the values within the perTick obj
