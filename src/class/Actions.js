@@ -38,14 +38,20 @@ export const listJobs = (player) => {
 
         levelMarkup +=`
         <div class="levelCategory column">
-            ${lvl}
-          ${btnMarkup}
+          <div style="display: flex; flex-direction: column">
+            <span>Position Level: ${lvl.trim()}</span>
+            <div class="buttons">
+              ${btnMarkup}
+            </div>
+          </div>
         </div>`
       });
 
       btnBlockHTML += `
-      <div class="pathCategory columns">${path}
-        ${levelMarkup}
+      <div class="pathCategory columns">
+        <div style="display: flex; flex-direction: column">
+          <span>Job Path: ${path}</span>
+          ${levelMarkup}
       </div>
       `;
     });
