@@ -31,13 +31,12 @@ export default class JobPath{
       amountToMax = 0;
     }
     document.getElementById('jobExp').innerText = this._exp;
-    console.log('Exp now', this._exp);
-    console.log('amountToMax now', amountToMax);
 
     if (amountToMax === 0){ listJobs(player) }
   }
 
   openJobs(stats) {
+    console.log('openJobs ()=> stats', stats);
     let levels;
     if (this._curLevel === 'none'){
       levels =  { 0: [] };

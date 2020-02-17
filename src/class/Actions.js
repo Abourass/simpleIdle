@@ -8,7 +8,7 @@ export const chooseAJob = (e, player) => {
   }
   player.careers._currentPath._curPosition = player.careers.searchJobs(target.dataset.jobCategory, target.dataset.jobLevel, target.dataset.title);
 
-  console.log('Player select a new position =>', player);
+  console.log('Player selected a new position =>', player);
 
   document.getElementById('controls').innerHTML = `
     <button class="btn button is-success" id="jobControl">${player.careers.currentPath.currentPosition.btnText} - $${player.careers.currentPath.currentPosition.salary}</button>
@@ -21,6 +21,8 @@ export const chooseAJob = (e, player) => {
 
 export const listJobs = (player) => {
     const potentialJobPaths = player._careers.listOfJobPaths({int: player.int, dex: player.dex, char: player.char, perc: player.perc, creativity: player.creativity, jobTitle: player.careers._currentPath === 'none' ? 'none' : player.careers.currentPosition._title});
+    console.log('listJobs ()=> potentialJobPaths =>', potentialJobPaths);
+    console.log('listJobs ()=> jobTitle =>', player.careers._currentPath === 'none' ? 'none' : player.careers.currentPosition._title);
     document.getElementById('statPointBlock').style.display = 'none';
     let btnBlockHTML = '';
 

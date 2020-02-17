@@ -40,8 +40,10 @@ const engine = () => {
         player.newTick.unshift();                                                  // Destroy the newTick obj since we've finished processing it
       }
 
+      if(player.careers.currentPath !== 'none'){
       player.update('money', 'add', perTick.money);
-      player.addJobExp(perTick.jobExp);
+      player.addJobExp(10); // perTick.jobExp
+      }
     } else {
       console.log(player)
     }
