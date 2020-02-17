@@ -2,7 +2,7 @@ export const chooseAJob = (e, player) => {
   const target = e.currentTarget;
 
   player.careers._currentPath = player.careers.searchPath(target.dataset.jobCategory);
-  if (player._currentPath._curLevel === 'none'){
+  if (player.careers._currentPath._curLevel === 'none'){
     player.careers._currentPath._curLevel = 0;
     player.careers._currentPath._exp = 0;
   }
