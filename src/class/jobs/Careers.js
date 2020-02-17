@@ -27,11 +27,14 @@ class Careers{
       paths.push({[category]: branch})
     };
 
+    const cleanBranch = (branch) => {Object.keys(branch).forEach((level) => { if (branch[level].length === 0 ){delete branch[level]} }); return branch};
+
     const doesBranchHavePosition = (branch, category) => {
       let hasPosition = false;
       Object.keys(branch).forEach((level) => { if (branch[level].length >= 1 ){hasPosition = true} });
       if (hasPosition === true){
-        addBranch(branch, category)
+        const cleanedBranch = cleanBranch(branch);
+        addBranch(cleanedBranch, category)
       }
     };
 
