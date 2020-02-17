@@ -64,6 +64,7 @@ export default class JobPath{
         levels[nextLvl] = [];
         this._levels[nextLvl].positions.filter(job => {
           let canAdd = true;
+          if (stats.jobTitle === job.title){ canAdd = false }
           Object.keys(job.requirements).forEach(req => {
             if (!stats[req]){ canAdd = false; }
             if (stats[req] < job.requirements[req]){ canAdd = false; }
