@@ -23,19 +23,23 @@ class Careers{
     const serviceJobs = this._paths.servicePath.openJobs(stats);
     const crimeJobs = this._paths.crimePath.openJobs(stats);
 
-    if (this._currentPath !== 'none'){
-      if (compJobs[this.paths.computerPath._curLevel !== 'none' ? this.paths.computerPath._curLevel : 0].length >= 1){ paths.push({computer: compJobs}) }
-      if (foodJobs[this.paths.foodPath._curLevel !== 'none' ? this.paths.foodPath._curLevel : 0].length >= 1){ paths.push({food: foodJobs}) }
-      if (fameJobs[this.paths.famePath._curLevel !== 'none' ? this.paths.famePath._curLevel : 0].length >= 1){ paths.push({fame: fameJobs}) }
-      if (serviceJobs[this.paths.servicePath._curLevel !== 'none' ? this.paths.servicePath._curLevel : 0].length >= 1){ paths.push({service: serviceJobs}) }
-      if (crimeJobs[this.paths.crimePath._curLevel !== 'none' ? this.paths.crimePath._curLevel : 0].length >= 1){ paths.push({crime: crimeJobs}) }
-    } else {
-      if (compJobs[0].length >= 1){ paths.push({computer: compJobs}) }
-      if (foodJobs[0].length >= 1){ paths.push({food: foodJobs}) }
-      if (fameJobs[0].length >= 1){ paths.push({fame: fameJobs}) }
-      if (serviceJobs[0].length >= 1){ paths.push({service: serviceJobs}) }
-      if (crimeJobs[0].length >= 1){ paths.push({crime: crimeJobs}) }
-    }
+    const addBranch = (branch, category) => {
+      paths.push({[category]: branch})
+    };
+
+    const doesBranchHavePosition = (branch, category) => {
+      let hasPosition = false;
+      Object.keys(branch).forEach((level) => { if (branch[level].length >= 1 ){hasPosition = true} });
+      if (hasPosition === true){
+        addBranch(branch, category)
+      }
+    };
+
+    doesBranchHavePosition(compJobs, 'computer');
+    doesBranchHavePosition(foodJobs, 'food');
+    doesBranchHavePosition(fameJobs, 'fame');
+    doesBranchHavePosition(serviceJobs, 'service');
+    doesBranchHavePosition(crimeJobs, 'crime');
 
     return paths
   };
