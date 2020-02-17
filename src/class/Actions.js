@@ -8,7 +8,7 @@ export const chooseAJob = (e, player) => {
   }
   player.careers._currentPath._curPosition = player.careers.searchJobs(target.dataset.jobCategory, target.dataset.jobLevel, target.dataset.title);
 
-  console.log('Player =>', player);
+  console.log('Player select a new position =>', player);
 
   document.getElementById('controls').innerHTML = `
     <button class="btn button is-success" id="jobControl">${player.careers.currentPath.currentPosition.btnText} - $${player.careers.currentPath.currentPosition.salary}</button>
