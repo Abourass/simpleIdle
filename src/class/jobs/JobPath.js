@@ -44,16 +44,18 @@ export default class JobPath{
     }
 
     this.levels[this._curLevel === 'none' ? 0 : this._curLevel].positions.forEach(job => {
-      console.log('Current Job Level => job', job);
       let canAdd = true;
+      console.log('Current Job Level => job', job, 'default canAdd =>', canAdd);
       console.log(`${job._title} => canAdd`, canAdd);
-      if (stats.jobTitle === job.title){ console.log(`Current Job Level => ${job._title} === ${stats.jobTitle} is true => canAdd`, canAdd); canAdd = false }
+      if (stats.jobTitle === job.title){ canAdd = false; console.log(`Current Job Level => ${job._title} === ${stats.jobTitle} is true => canAdd`, canAdd); }
       Object.keys(job.requirements).forEach(req => {
-        if (!stats[req]){ canAdd = false; }
-        if (stats[req] < job.requirements[req]){ canAdd = false; }
+        if (!stats[req]){ canAdd = false; console.log(`Current Job Level => ${job._title} => Player has stats required?`, canAdd)}
+        if (stats[req] < job.requirements[req]){ canAdd = false; console.log(`Current Job Level => ${job._title} => Player has stats required?`, canAdd) }
       });
       if (canAdd){
-        levels[this._curLevel === 'none' ? 0 : this._curLevel].push(job)
+        levels[this._curLevel === 'none' ? 0 : this._curLevel].push(job);
+        console.log(`Current Job Level => ${job._title} => canAdd was true so let's add ${job.title} to level[${this._curLevel === 'none' ? 0 : this._curLevel}]`);
+        console.log('Levels currently looks like => ', levels);
       }
     });
 
@@ -67,11 +69,13 @@ export default class JobPath{
           let canAdd = true;
           if (stats.jobTitle === job.title){ canAdd = false; console.log(`Next Job Level => ${job._title} === ${stats.jobTitle} is true => canAdd`, canAdd);  }
           Object.keys(job.requirements).forEach(req => {
-            if (!stats[req]){ canAdd = false; }
-            if (stats[req] < job.requirements[req]){ canAdd = false; }
+            if (!stats[req]){ canAdd = false; console.log(`Next Job Level => ${job._title} => Player has stats required?`, canAdd) }
+            if (stats[req] < job.requirements[req]){ canAdd = false; console.log(`Next Job Level => ${job._title} => Player has stats required?`, canAdd) }
           });
           if (canAdd){
-            levels[nextLvl].push(job)
+            levels[nextLvl].push(job);
+            console.log(`Next Job Level => ${job._title} => canAdd was true so let's add ${job.title} to level[${nextLvl}]`);
+            console.log('Levels currently looks like => ', levels);
           }
         });
       }
