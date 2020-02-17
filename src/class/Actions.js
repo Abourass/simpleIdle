@@ -20,7 +20,7 @@ export const chooseAJob = (e, player) => {
 };
 
 export const listJobs = (player) => {
-    const potentialJobPaths = player._careers.listOfJobPaths({int: player.int, dex: player.dex, char: player.char, perc: player.perc, creativity: player.creativity, jobTitle: player.careers._curPosition === 'none' ? 'none' : player.careers._curPosition._title});
+    const potentialJobPaths = player._careers.listOfJobPaths({int: player.int, dex: player.dex, char: player.char, perc: player.perc, creativity: player.creativity, jobTitle: player.careers._currentPath === 'none' ? 'none' : player.careers.currentPosition._title});
     document.getElementById('statPointBlock').style.display = 'none';
     let btnBlockHTML = '';
 
