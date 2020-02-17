@@ -42,7 +42,7 @@ const engine = () => {
 
       if(player.careers.currentPath !== 'none'){
       player.update('money', 'add', perTick.money);
-      player.addJobExp(10); // perTick.jobExp
+      if(player.careers.currentExp !== player.careers.currentPath.levels[player.careers.currentLevel].maxExp){ player.addJobExp(10); } // perTick.jobExp
       }
     } else {
       console.log(player)

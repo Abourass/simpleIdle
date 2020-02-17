@@ -11,6 +11,7 @@ class Careers{
   get currentPath(){ return this._currentPath}
   get currentPosition(){return this._currentPath._curPosition}
   get currentLevel(){return this._currentPath._curLevel}
+  get currentExp(){return this._currentPath._exp}
 
 
   listOfJobPaths = (stats) => {
