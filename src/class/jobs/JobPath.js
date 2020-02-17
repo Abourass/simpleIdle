@@ -36,7 +36,6 @@ export default class JobPath{
   }
 
   openJobs(stats) {
-    console.log('openJobs ()=> stats', stats);
     let levels;
     if (this._curLevel === 'none'){
       levels =  { 0: [] };
@@ -45,8 +44,10 @@ export default class JobPath{
     }
 
     this.levels[this._curLevel === 'none' ? 0 : this._curLevel].positions.forEach(job => {
+      console.log('Current Job Level => job', job);
       let canAdd = true;
-      if (stats.jobTitle === job.title){ canAdd = false }
+      console.log(`${job._title} => canAdd`, canAdd);
+      if (stats.jobTitle === job.title){ console.log(`Current Job Level => ${job._title} === ${stats.jobTitle} is true => canAdd`, canAdd); canAdd = false }
       Object.keys(job.requirements).forEach(req => {
         if (!stats[req]){ canAdd = false; }
         if (stats[req] < job.requirements[req]){ canAdd = false; }
@@ -62,8 +63,10 @@ export default class JobPath{
       if (this._exp === this._levels[nextLvl].minExp){
         levels[nextLvl] = [];
         this._levels[nextLvl].positions.filter(job => {
+          console.log('Next Job Level => job', job);
           let canAdd = true;
           if (stats.jobTitle === job.title){ canAdd = false }
+          if (stats.jobTitle === job.title){ console.log(`Next Job Level => ${job._title} === ${stats.jobTitle} is true => canAdd`, canAdd); canAdd = false }
           Object.keys(job.requirements).forEach(req => {
             if (!stats[req]){ canAdd = false; }
             if (stats[req] < job.requirements[req]){ canAdd = false; }
