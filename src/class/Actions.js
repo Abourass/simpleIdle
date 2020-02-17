@@ -37,12 +37,14 @@ export const listJobs = (player) => {
         });
 
         levelMarkup +=`
-        <div class="levelCategory">${lvl}
+        <div class="levelCategory column">
+            ${lvl}
           ${btnMarkup}
-        </div>`});
+        </div>`
+      });
 
       btnBlockHTML += `
-      <div class="pathCategory buttons">${path}
+      <div class="pathCategory columns">${path}
         ${levelMarkup}
       </div>
       `;
