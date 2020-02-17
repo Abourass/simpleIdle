@@ -20,43 +20,46 @@ export const chooseAJob = (e, player) => {
 };
 
 export const listJobs = (player) => {
-    const potentialJobPaths = player._careers.listOfJobPaths({int: player.int, dex: player.dex, char: player.char, perc: player.perc, creativity: player.creativity, jobTitle: player.careers._currentPath === 'none' ? 'none' : player.careers.currentPosition._title});
-    console.log('listJobs ()=> potentialJobPaths =>', potentialJobPaths);
-    console.log('listJobs ()=> jobTitle =>', player.careers._currentPath === 'none' ? 'none' : player.careers.currentPosition._title);
-    document.getElementById('statPointBlock').style.display = 'none';
-    let btnBlockHTML = '';
+  const potentialJobPaths = player._careers.listOfJobPaths({int: player.int, dex: player.dex, char: player.char, perc: player.perc, creativity: player.creativity, jobTitle: player.careers._currentPath === 'none' ? 'none' : player.careers.currentPosition._title});
+  console.log('listJobs ()=> potentialJobPaths =>', potentialJobPaths);
+  console.log('listJobs ()=> jobTitle =>', player.careers._currentPath === 'none' ? 'none' : player.careers.currentPosition._title);
+  document.getElementById('statPointBlock').style.display = 'none';
+  let btnBlockHTML = '';
 
-    potentialJobPaths.forEach(jobPath => {
-      const path = Object.keys(jobPath)[0]; // Ex: computer, food, etc
-      const positionLevels = Object.keys(jobPath[path]);
-      let btnMarkup = '';
-      let levelMarkup = '';
-      positionLevels.forEach(lvl => {
-        jobPath[path][lvl].forEach(position => {
-          btnMarkup += `<button class="button is-primary jobBtn" title="${position.altText}" data-title="${position.title}" data-job-level="${lvl}" data-job-category="${path}">${position.title} - ${position.salary}</button>`
-        });
-
-        levelMarkup +=`
-        <div class="levelCategory column">
-          <div style="display: flex; flex-direction: column">
-            <span>Position Level: ${lvl.trim()}</span>
-            <div class="buttons">
-              ${btnMarkup}
-            </div>
-          </div>
-        </div>`
+  potentialJobPaths.forEach(jobPath => {
+    const path = Object.keys(jobPath)[0]; // Ex: computer, food, etc
+    const positionLevels = Object.keys(jobPath[path]);
+    let btnMarkup = '';
+    let levelMarkup = '';
+    positionLevels.forEach(lvl => {
+      jobPath[path][lvl].forEach(position => {
+        btnMarkup += `<button class="button is-primary jobBtn" title="${position.altText}" data-title="${position.title}" data-job-level="${lvl}" data-job-category="${path}">${position.title} - ${position.salary}</button>`
       });
 
-      btnBlockHTML += `
-      <div class="pathCategory columns">
+      levelMarkup +=`
+        <div style="display: flex; flex-direction: column">
+          <span>Position Level: ${lvl.trim()}</span>
+          <div class="buttons">
+            ${btnMarkup}
+          </div>
+        </div>`
+    });
+
+    btnBlockHTML += `
+      <div class="column">
         <div style="display: flex; flex-direction: column">
           <span>Job Path: ${path}</span>
           ${levelMarkup}
+        </div>
       </div>
       `;
-    });
-    document.getElementById('controls').innerHTML = btnBlockHTML;
-    document.querySelectorAll('.jobBtn').forEach(el => el.onclick = (e) => chooseAJob(e, player))
+  });
+  document.getElementById('controls').innerHTML = `
+    <div class="pathCategory columns">
+    ${btnBlockHTML}
+    </div>
+    `;
+  document.querySelectorAll('.jobBtn').forEach(el => el.onclick = (e) => chooseAJob(e, player))
 };
 
 export const loadAJob = (player) => {
