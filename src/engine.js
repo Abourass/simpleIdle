@@ -36,7 +36,9 @@ const engine = () => {
       if(player.careers.currentPath !== 'none'){ Shop.showItems(player); }                         // show Items in the shop
       if (player.newTick.length >= 1){                                             // Is there new perTick values?
         const valuesToAdd = player.newTick[0];                                     // Grab the first perTick object
-        Object.keys(valuesToAdd).forEach(key => perTick[key] += valuesToAdd[key]); // Increase the values within the perTick obj
+        console.log(valuesToAdd);
+        if (valuesToAdd.repetition === 'perTick'){ perTick[valuesToAdd.bonus] += valuesToAdd.amount; }
+        if (valuesToAdd.repetition === 'once'){ player[valuesToAdd.bonus] += valuesToAdd.amount; }
         player.newTick.unshift();                                                  // Destroy the newTick obj since we've finished processing it
       }
 

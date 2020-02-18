@@ -1,7 +1,8 @@
 export default class Item {
-  constructor(title, bonus, requirement) {
+  constructor(title, id, bonusArray, requirement) {
+    this.id = id;
     this.title = title;
-    this.bonus = bonus;
+    this.bonus = bonusArray;
     this.requirement = requirement;
   }
 }
