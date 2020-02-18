@@ -50,7 +50,7 @@ export const listJobs = (player) => {
     btnBlockHTML += `
       <div class="column">
         <div style="display: flex; flex-direction: column">
-          <span class="has-text-centered">Job Path: <div style="text-transform:capitalize;">${path}</div></span>
+          <span class="has-text-centered">Job Path: <span style="text-transform:capitalize;">${path}</span></span>
           ${levelMarkup}
         </div>
       </div>
