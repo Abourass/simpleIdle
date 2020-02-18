@@ -11,24 +11,24 @@ const engine = () => {
     tickSpeed: 2000
   };
 
-   /*
-  if (localStorage.getItem('player')){
-    player = new Player().load(JSON.parse(localStorage.getItem('player')));
-    loadAJob(player);
-    Shop.loadShop(player);
-    if (player.items >= 1){
-      player.items.forEach(item => {
-        if (item.bonus.moneyPerSecond){ perTick.money += item.bonus.moneyPerSecond }
-        if (item.bonus.expPerSecond){ perTick.exp += item.bonus.expPerSecond }
-        if (item.bonus.jobExpPerSecond){ perTick.jobExp += item.bonus.jobExpPerSecond}
-        if (item.bonus.tickSpeed){ perTick.tickSpeed += item.bonus.tickSpeed}
-      })
-    }
-  } else {
+  /*
+ if (localStorage.getItem('player')){
+   player = new Player().load(JSON.parse(localStorage.getItem('player')));
+   loadAJob(player);
+   Shop.loadShop(player);
+   if (player.items >= 1){
+     player.items.forEach(item => {
+       if (item.bonus.moneyPerSecond){ perTick.money += item.bonus.moneyPerSecond }
+       if (item.bonus.expPerSecond){ perTick.exp += item.bonus.expPerSecond }
+       if (item.bonus.jobExpPerSecond){ perTick.jobExp += item.bonus.jobExpPerSecond}
+       if (item.bonus.tickSpeed){ perTick.tickSpeed += item.bonus.tickSpeed}
+     })
+   }
+ } else {
 
-    */
-    player = new Player();
-    document.getElementById('startBtn').onclick = () => player.init();
+   */
+  player = new Player();
+  document.getElementById('startBtn').onclick = () => player.init();
   // }
 
   window.setInterval(() => {
@@ -41,8 +41,8 @@ const engine = () => {
       }
 
       if(player.careers.currentPath !== 'none'){
-      player.update('money', 'add', perTick.money);
-      if(player.careers.currentExp !== player.careers.currentPath.levels[player.careers.currentLevel].maxExp){ player.addJobExp(10); } // perTick.jobExp
+        player.update('money', 'add', perTick.money);
+        if(player.careers.currentExp !== player.careers.currentPath.levels[player.careers.currentLevel].maxExp){ player.addJobExp(perTick.jobExp); } // perTick.jobExp
       }
     } else {
       console.log(player)
