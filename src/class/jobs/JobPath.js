@@ -30,8 +30,7 @@ export default class JobPath{
       this._exp += amountToMax;
       amountToMax = 0;
     }
-    document.getElementById('jobExp').innerText = this._exp;
-
+    document.getElementById('jobExp').innerHTML = `<span style = "text-transform:capitalize;">${player.careers.currentPath.category}</span> Exp - ${player.careers.currentPath._exp}`;
     if (amountToMax === 0){ listJobs(player) }
   }
 
@@ -48,15 +47,12 @@ export default class JobPath{
       }
     }
 
-
-
     this.levels[this._curLevel === 'none' ? 0 : this._curLevel].positions.forEach(job => {
       let canAdd = true;
-      console.log('Current Job Level => job', job, 'default canAdd =>', canAdd);
-      if (stats.jobTitle === job.title){ canAdd = false; console.log(`Current Job Level => ${job._title} === ${stats.jobTitle} is true => canAdd`, canAdd); }
+      if (stats.jobTitle === job.title){ canAdd = false; }
       Object.keys(job.requirements).forEach(req => {
-        if (!stats[req]){ canAdd = false; console.log(`Current Job Level => ${job._title} => Player has stats required?`, canAdd)}
-        if (stats[req] < job.requirements[req]){ canAdd = false; console.log(`Current Job Level => ${job._title} => Player has stats required?`, canAdd) }
+        if (!stats[req]){ canAdd = false; }
+        if (stats[req] < job.requirements[req]){ canAdd = false; }
       });
       if (canAdd){
         levels[this._curLevel === 'none' ? 0 : this._curLevel].push(job);
@@ -66,15 +62,12 @@ export default class JobPath{
     });
 
     if (this._curLevel !== 'none' && this._exp === this._levels[nextLvl].minExp){
-      console.log(`${this.category} Exp =>`, this._exp);
-      console.log('this._levels[nextLvl].minExp', this._levels[nextLvl].minExp);
       this._levels[nextLvl].positions.filter(job => {
         let canAdd = true;
-        console.log('Next Job Level => job', job, 'default canAdd =>', canAdd);
-        if (stats.jobTitle === job.title){ canAdd = false; console.log(`Next Job Level => ${job._title} === ${stats.jobTitle} is true => canAdd`, canAdd);  }
+        if (stats.jobTitle === job.title){ canAdd = false; }
         Object.keys(job.requirements).forEach(req => {
-          if (!stats[req]){ canAdd = false; console.log(`Next Job Level => ${job._title} => Player has stats required?`, canAdd) }
-          if (stats[req] < job.requirements[req]){ canAdd = false; console.log(`Next Job Level => ${job._title} => Player has stats required?`, canAdd) }
+          if (!stats[req]){ canAdd = false; }
+          if (stats[req] < job.requirements[req]){ canAdd = false; }
         });
         if (canAdd){
           levels[nextLvl].push(job);

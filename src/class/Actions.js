@@ -17,7 +17,7 @@ export const chooseAJob = (e, player) => {
   `;
   document.getElementById('job').innerText = `${player.careers.currentPath.category} - ${player.careers.currentPath.currentPosition.title}`;
   document.getElementById('jobLvl').innerText = player.careers.currentLevel;
-  document.getElementById('jobExp').innerText = `${player.careers.currentPath.category} Exp - ${player.careers.currentPath._exp}`;
+  document.getElementById('jobExp').innerHTML = `<span style = "text-transform:capitalize;">${player.careers.currentPath.category}</span> Exp - ${player.careers.currentPath._exp}`;
   document.getElementById('jobControl').onclick = () => { player.update('money', 'add', player.careers.currentPath.currentPosition.salary); player.careers.currentPath.addExp(10, player);}
 };
 
