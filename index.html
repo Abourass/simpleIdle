@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
   <style>
     .buttonSection {padding: 0; display: flex; justify-content: center;}
+    .hidden {display: none}
   </style>
 </head>
 <body>
@@ -16,11 +17,9 @@
     <p id="moneyBlock" class="level-item has-text-centered"><span class="panel-icon"> <i class="fas fa-money-bill-alt" aria-hidden="true"></i> </span> <span id="money"></span></p>
     <p id="healthBlock" class="level-item has-text-centered"><span class="panel-icon"> <i class="fas fa-heart" aria-hidden="true"></i> </span> <span id="health"></span></p>
     <p id="statPointBlock" class="level-item has-text-centered"><span class="panel-icon"> <i class="fas fa-bolt" aria-hidden="true"></i> </span> <span id="statPoints"></span></p>
-  </div>
-  <div class="level" id="jobBlock" style="border-bottom: 1px solid #ededed; padding: .5rem .75rem; margin-bottom: 0">
-    <p class="level-item has-text-centered"><span id="job"></span></p>
-    <p class="level-item has-text-centered">Job Level: &nbsp; <span id="jobLvl"></span></p>
-    <p class="level-item has-text-centered"><span id="jobExp"></span></p>
+    <p id="jobTitleBlock" class="level-item has-text-centered hidden"><span id="job"></span></p>
+    <p id="jobLevelBlock" class="level-item has-text-centered hidden">Job Level: &nbsp; <span id="jobLvl"></span></p>
+    <p id="jobExpBlock" class="level-item has-text-centered hidden"><span id="jobExp"></span></p>
   </div>
   <div class="level" style="padding: .5rem .75rem">
     <p class="level-item has-text-centered">Intelligence &nbsp; <span id="int"></span></p>

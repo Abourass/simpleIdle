@@ -1,7 +1,11 @@
 export const chooseAJob = (e, player) => {
   const target = e.currentTarget;
+  const jobTitleBlock = document.getElementById('jobTitleBlock');
+  const jobLevelBlock = document.getElementById('jobLevelBlock');
+  const jobExpBlock = document.getElementById('jobExpBlock');
 
   player.careers._currentPath = player.careers.searchPath(target.dataset.jobCategory);
+
   if (player.careers._currentPath._curLevel === 'none'){
     player.careers._currentPath._curLevel = 0;
     player.careers._currentPath._exp = 0;
@@ -15,9 +19,13 @@ export const chooseAJob = (e, player) => {
   document.getElementById('controls').innerHTML = `
     <button class="btn button is-success" id="jobControl">${player.careers.currentPath.currentPosition.btnText} - $${player.careers.currentPath.currentPosition.salary}</button>
   `;
+
   document.getElementById('job').innerText = `${player.careers.currentPath.currentPosition.title}`;
   document.getElementById('jobLvl').innerText = player.careers.currentLevel;
   document.getElementById('jobExp').innerHTML = `<span style="text-transform:capitalize;">${player.careers.currentPath.category}</span> Exp - ${player.careers.currentPath._exp}`;
+  if (jobTitleBlock.classList.contains('hidden')){ jobTitleBlock.classList.remove('hidden'); }
+  if (jobLevelBlock.classList.contains('hidden')){ jobLevelBlock.classList.remove('hidden'); }
+  if (jobExpBlock.classList.contains('hidden')){ jobExpBlock.classList.remove('hidden'); }
   document.getElementById('jobControl').onclick = () => { player.update('money', 'add', player.careers.currentPath.currentPosition.salary); player.careers.currentPath.addExp(10, player);}
 };
 
