@@ -30,7 +30,7 @@ export default class JobPath{
       this._exp += amountToMax;
       amountToMax = 0;
     }
-    document.getElementById('jobExp').innerHTML = `<span style = "text-transform:capitalize;">${player.careers.currentPath.category}</span> Exp - ${player.careers.currentPath._exp}`;
+    document.getElementById('jobExp').innerHTML = `<span style="text-transform:capitalize;">${player.careers.currentPath.category}</span> Exp - ${player.careers.currentPath._exp}`;
     if (amountToMax === 0){ listJobs(player) }
   }
 

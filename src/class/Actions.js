@@ -15,9 +15,9 @@ export const chooseAJob = (e, player) => {
   document.getElementById('controls').innerHTML = `
     <button class="btn button is-success" id="jobControl">${player.careers.currentPath.currentPosition.btnText} - $${player.careers.currentPath.currentPosition.salary}</button>
   `;
-  document.getElementById('job').innerText = `${player.careers.currentPath.category} - ${player.careers.currentPath.currentPosition.title}`;
+  document.getElementById('job').innerText = `${player.careers.currentPath.currentPosition.title}`;
   document.getElementById('jobLvl').innerText = player.careers.currentLevel;
-  document.getElementById('jobExp').innerHTML = `<span style = "text-transform:capitalize;">${player.careers.currentPath.category}</span> Exp - ${player.careers.currentPath._exp}`;
+  document.getElementById('jobExp').innerHTML = `<span style="text-transform:capitalize;">${player.careers.currentPath.category}</span> Exp - ${player.careers.currentPath._exp}`;
   document.getElementById('jobControl').onclick = () => { player.update('money', 'add', player.careers.currentPath.currentPosition.salary); player.careers.currentPath.addExp(10, player);}
 };
 
@@ -40,7 +40,7 @@ export const listJobs = (player) => {
 
       levelMarkup +=`
         <div style="display: flex; flex-direction: column">
-          <span>Position Level: ${lvl.trim()}</span>
+          <span class="has-text-centered">Position Level: ${lvl.trim()}</span>
           <div class="buttons">
             ${btnMarkup}
           </div>
@@ -50,7 +50,7 @@ export const listJobs = (player) => {
     btnBlockHTML += `
       <div class="column">
         <div style="display: flex; flex-direction: column">
-          <span>Job Path: ${path}</span>
+          <span class="has-text-centered">Job Path: </span><span style="text-transform:capitalize;">${path}</span>
           ${levelMarkup}
         </div>
       </div>
