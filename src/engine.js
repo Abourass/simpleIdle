@@ -6,6 +6,13 @@ const engine = () => {
 
   const perTick = {
     money: 0,
+    jobBonuses: [
+      {computer: 0},
+      {food: 0},
+      {service: 0},
+      {fame: 0},
+      {crime: 0},
+    ],
     exp: 0,
     jobExp: 0,
     tickSpeed: 2000
@@ -37,13 +44,22 @@ const engine = () => {
       if (player.newTick.length >= 1){                                             // Is there new perTick values?
         const valuesToAdd = player.newTick[0];                                     // Grab the first perTick object
         console.log(valuesToAdd);
-        if (valuesToAdd.repetition === 'perTick'){ perTick[valuesToAdd.bonus] += valuesToAdd.amount; }
+        if (valuesToAdd.repetition === 'perTick'){
+          if (valuesToAdd.requirements.jobCategory) {
+            const jobBonusForCategory = perTick.jobBonuses.filter(jobBonus => Object.keys(jobBonus)[0] === valuesToAdd.requirements.jobCategory)[0];
+            jobBonusForCategory[valuesToAdd.requirements.jobCategory] += valuesToAdd.amount;
+          } else {
+            perTick[valuesToAdd.target] += valuesToAdd.amount;
+          }
+        }
         if (valuesToAdd.repetition === 'once'){ player[valuesToAdd.bonus] += valuesToAdd.amount; }
         player.newTick.unshift();                                                  // Destroy the newTick obj since we've finished processing it
       }
 
       if(player.careers.currentPath !== 'none'){
+        const jobBonusForCategory = perTick.jobBonuses.filter(jobBonus => Object.keys(jobBonus)[0] === player.careers.currentPath.category)[0];
         player.update('money', 'add', perTick.money);
+        player.update('money', 'add', jobBonusForCategory[player.careers.currentPath.category]);
         if(player.careers.currentExp !== player.careers.currentPath.levels[player.careers.currentLevel].maxExp){ player.addJobExp(perTick.jobExp); } // perTick.jobExp
       }
     } else {
