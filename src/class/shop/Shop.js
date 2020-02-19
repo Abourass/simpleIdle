@@ -4,17 +4,72 @@ import Bonus from './Bonus.js';
 class Shop{
   constructor() {
     this._items = [
-      new Item('Mechanical Keyboard', 'mechanicalKeyboard', [new Bonus('money', 1, 'Money Per Second +1'), 'perTick'], {jobCategory: 'computer', jobLevel: 1, cost: 100}),
-      new Item('Custom Keys for your Keyboard', 'customKeys', [new Bonus('money', 1, 'Money Per Second +1'), 'perTick'], {jobCategory: 'computer', jobLevel: 2, cost: 200}),
-      new Item(`<i class="fas fa-book"></i> Code: The Hidden Language of Computer Hardware and Software`, 'bookCode', [new Bonus('int', 1, 'Int +1', 'once')], {jobCategory: 'computer', jobLevel: 1, cost: 40}),
-      new Item('Food Handling License', 'foodLicense', [new Bonus('money', 1, 'Money Per Second +1'), 'perTick'], {jobCategory: 'food', jobLevel: 1, cost: 100}),
-      new Item('Chef\'s Knife', 'chefsKnife', [new Bonus('money', 1, 'Money Per Second +1'), 'perTick'], {jobCategory: 'food', jobLevel: 2, cost: 200}),
-      new Item('Some flair for your work blazer', 'flair', [new Bonus('money', 1, 'Money Per Second +1'), 'perTick'], {jobCategory: 'service', jobLevel: 1, cost: 50}),
-      new Item('Get a professional haircut', 'hairCut', [new Bonus('money', 1, 'Money Per Second +1'), 'perTick'], {jobCategory: 'service', jobLevel: 2, cost: 150}),
-      new Item('A mediocre webcam', 'shittyCam', [new Bonus('money', 1, 'Money Per Second +1'), 'perTick'], {jobCategory: 'fame', jobLevel: 1, cost: 150}),
-      new Item('A mediocre microphone', 'shittyMic', [new Bonus('money', 1, 'Money Per Second +1'), 'perTick'], {jobCategory: 'fame', jobLevel: 1, cost: 150}),
-      new Item('Some quiet sneakers', 'sneakies', [new Bonus('money', 1, 'Money Per Second +1'), 'perTick'], {jobCategory: 'crime', jobLevel: 1, cost: 60}),
-      new Item('A totally stealthy trench coat', 'trenchCoat', [new Bonus('money', 1, 'Money Per Second +1'), 'perTick'], {jobCategory: 'crime', jobLevel: 1, cost: 100}),
+      new Item(
+        'Mechanical Keyboard',
+        'mechanicalKeyboard',
+        [new Bonus('money', 1, 'Money Per Second +1', 'perTick')],
+        {jobCategory: 'computer', jobLevel: 1, cost: 100}
+        ),
+      new Item(
+        'Custom Keys for your Keyboard',
+        'customKeys',
+        [new Bonus('money', 1, 'Money Per Second +1', 'perTick')],
+        {jobCategory: 'computer', jobLevel: 2, cost: 200}
+        ),
+      new Item(
+        `<i class="fas fa-book"></i> Code: The Hidden Language of Computer Hardware and Software`,
+        'bookCode',
+        [new Bonus('int', 1, 'Int +1', 'once')],
+        {jobCategory: 'computer', jobLevel: 1, cost: 40}
+        ),
+      new Item(
+        'Food Handling License',
+        'foodLicense',
+        [new Bonus('money', 1, 'Money Per Second +1', 'perTick')],
+        {jobCategory: 'food', jobLevel: 1, cost: 100}
+        ),
+      new Item(
+        'Chef\'s Knife',
+        'chefsKnife',
+        [new Bonus('money', 1, 'Money Per Second +1', 'perTick')],
+        {jobCategory: 'food', jobLevel: 2, cost: 200}
+        ),
+      new Item(
+        'Some flair for your work blazer',
+        'flair',
+        [new Bonus('money', 1, 'Money Per Second +1', 'perTick')],
+        {jobCategory: 'service', jobLevel: 1, cost: 50}
+        ),
+      new Item(
+        'Get a professional haircut',
+        'hairCut',
+        [new Bonus('money', 1, 'Money Per Second +1', 'perTick')],
+        {jobCategory: 'service', jobLevel: 2, cost: 150}
+        ),
+      new Item(
+        'A mediocre webcam',
+        'shittyCam',
+        [new Bonus('money', 1, 'Money Per Second +1', 'perTick')],
+        {jobCategory: 'fame', jobLevel: 1, cost: 150}
+        ),
+      new Item(
+        'A mediocre microphone',
+        'shittyMic',
+        [new Bonus('money', 1, 'Money Per Second +1', 'perTick')],
+        {jobCategory: 'fame', jobLevel: 1, cost: 150}
+        ),
+      new Item(
+        'Some quiet sneakers',
+        'sneakies',
+        [new Bonus('money', 1, 'Money Per Second +1', 'perTick')],
+        {jobCategory: 'crime', jobLevel: 1, cost: 60}
+        ),
+      new Item(
+        'A totally stealthy trench coat',
+        'trenchCoat',
+        [new Bonus('money', 1, 'Money Per Second +1', 'perTick')],
+        {jobCategory: 'crime', jobLevel: 1, cost: 100}
+        ),
     ]
   }
 
