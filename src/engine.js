@@ -18,7 +18,6 @@ const engine = () => {
     tickSpeed: 2000
   };
 
-  /*
  if (localStorage.getItem('player')){
    player = new Player().load(JSON.parse(localStorage.getItem('player')));
    loadAJob(player);
@@ -33,10 +32,9 @@ const engine = () => {
    }
  } else {
 
-   */
   player = new Player();
   document.getElementById('startBtn').onclick = () => player.init();
-  // }
+  }
 
   window.setInterval(() => {
     if (typeof player === 'object'){
