@@ -25,6 +25,7 @@ class Player {
   get statPoints(){return this._statPoints}
 
   get int(){return this._int}
+  set inc(increase){this._int += increase}
 
   get dex(){return this._dex}
 
