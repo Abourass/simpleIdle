@@ -1,5 +1,7 @@
 import Player from './class/Player.js'
 import Shop from './class/shop/Shop.js'
+import {loadAJob} from './class/Actions';
+import {µ} from './tools/micro.mjs';
 
 const engine = () => {
   let player;
@@ -33,7 +35,7 @@ const engine = () => {
  } else {
 
   player = new Player();
-  document.getElementById('startBtn').onclick = () => player.init();
+   µ('startBtn').on('click', () => player.init());
   }
 
   window.setInterval(() => {

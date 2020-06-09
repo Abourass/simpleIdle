@@ -1,5 +1,6 @@
 import careers from './jobs/Careers.js';
-import {listJobs} from './Actions.js'
+import {listJobs} from './Actions.js';
+import {µ} from '../tools/micro.mjs';
 
 class Player {
   constructor() {
@@ -79,10 +80,10 @@ class Player {
       <button class="btn button is-primary" id="incCharisma">Increase Charisma</button>
       <button class="btn button is-primary" id="incPerception">Increase Perception</button>
     `;
-    document.getElementById('incIntelligence').onclick = () => this.increaseStat('int', () => listJobs(this));
-    document.getElementById('incDexterity').onclick = () => this.increaseStat('dex', () => listJobs(this));
-    document.getElementById('incCharisma').onclick = () => this.increaseStat('char', () => listJobs(this));
-    document.getElementById('incPerception').onclick = () => this.increaseStat('perc', () => listJobs(this));
+    µ('#incIntelligence').on('click', () => this.increaseStat('int', () => listJobs(this)));
+    µ('#incDexterity').on('click', () => this.increaseStat('dex', () => listJobs(this)));
+    µ('#incCharisma').on('click',() => this.increaseStat('char', () => listJobs(this)));
+    µ('#incPerception').on('click', () => this.increaseStat('perc', () => listJobs(this)));
   }
 
   load(playerObj){
