@@ -36,7 +36,7 @@ const engine = () => {
  } else {
 
   player = new Player();
-   µ('startBtn').on('click', () => player.init());
+   µ('#startBtn').on('click', () => player.init());
   }
 
   window.setInterval(() => {
