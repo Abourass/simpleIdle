@@ -21,7 +21,7 @@ const engine = () => {
   };
 
  if (localStorage.getItem('player')){
-   console.log(localStorage.getItem('player'))
+   console.log(JSON.parse(localStorage.getItem('player')))
    player = new Player().load(JSON.parse(localStorage.getItem('player')));
    loadAJob(player);
    Shop.loadShop(player);
