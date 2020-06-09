@@ -19,7 +19,7 @@ const engine = () => {
     jobExp: 0,
     tickSpeed: 2000
   };
-
+/*
  if (localStorage.getItem('player')){
    console.log(JSON.parse(localStorage.getItem('player')))
    player = new Player().load(JSON.parse(localStorage.getItem('player')));
@@ -34,10 +34,10 @@ const engine = () => {
      })
    }
  } else {
-
+*/
   player = new Player();
    µ('#startBtn').on('click', () => player.init());
-  }
+  // }
 
   window.setInterval(() => {
     if (typeof player === 'object'){
