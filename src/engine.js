@@ -1,6 +1,6 @@
 import Player from './class/Player.js'
 import Shop from './class/shop/Shop.js'
-import {loadAJob} from './class/Actions';
+import {loadAJob} from './class/Actions.js';
 import {µ} from './tools/micro.mjs';
 
 const engine = () => {
