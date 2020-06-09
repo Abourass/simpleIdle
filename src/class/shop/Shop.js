@@ -77,7 +77,7 @@ class Shop{
 
   buyItem(e, player) {
     const target = e.currentTarget;
-    const item = this._items.filter(_item => _item.id === target.dataset.ID)[0];
+    const item = this._items.filter(_item => _item.id === target.dataset.id)[0];
     if (player.money >= item.requirement.cost){
       player.update('money', 'sub', item.requirement.cost);
       player.addItem(item);
