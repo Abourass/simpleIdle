@@ -91,11 +91,14 @@ class Player {
       switch (key){
         case '_careers': {
           this._careers = careers().load(playerObj.careers);
-          if (!isNaN(playerObj._careers._jobPath.experience)){
-            this.jobPath.loadExp(playerObj._jobPath.experience)
+          /*
+          if (!isNaN(playerObj._careers._currentPath._exp)){
+            this.jobPath.loadExp(playerObj._careers._currentPath._exp)
           } else {
             this.job.addExp(0)
           }
+
+           */
           break;
         }
         default: { this[key] = playerObj[key] }
