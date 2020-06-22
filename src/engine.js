@@ -40,34 +40,31 @@ const engine = () => {
 
   window.setInterval(() => {
     if (typeof player === 'object'){
-      if (player.careers.currentPath !== 'none'){ Shop.showItems(player); }                         // show Items in the shop
+      if (player.careers.currentPath !== 'none') Shop.showItems(player);    // show Items in the shop
       if (player.newTick.length >= 1){                                             // Is there new perTick values?
-        const valuesToAdd = player.newTick[0];                                     // Grab the first perTick object
-        console.log(valuesToAdd);
+        const valuesToAdd = player.newTick[0][0];                                     // Grab the first perTick object
+        console.log('[BONUS]=>', valuesToAdd);
         if (valuesToAdd.repetition === 'perTick'){
-          if (valuesToAdd.requirements.jobCategory) {
+          if (valuesToAdd.requirements && valuesToAdd.requirements.jobCategory) {
             const jobBonusForCategory = perTick.jobBonuses.filter(jobBonus => Object.keys(jobBonus)[0] === valuesToAdd.requirements.jobCategory)[0];
             jobBonusForCategory[valuesToAdd.requirements.jobCategory] += valuesToAdd.amount;
           } else {
-            perTick[valuesToAdd.target] += valuesToAdd.amount;
+            perTick[valuesToAdd.bonus] += valuesToAdd.amount;
           }
         }
         if (valuesToAdd.repetition === 'once'){
-          player[valuesToAdd.bonus.bonus] += valuesToAdd.bonus.amount;
+          player.update([valuesToAdd.bonus], 'add', valuesToAdd.amount);
         }
         player.newTick.shift();                                                  // Destroy the newTick obj since we've finished processing it
       }
 
       if (player.careers.currentPath !== 'none'){
         const jobBonusForCategory = perTick.jobBonuses.filter(jobBonus => Object.keys(jobBonus)[0] === player.careers.currentPath.category)[0];
-        console.log(jobBonusForCategory)
         player.update('money', 'add', perTick.money);
         player.update('money', 'add', jobBonusForCategory[player.careers.currentPath.category]);
         if(player.careers.currentExp !== player.careers.currentPath.levels[player.careers.currentLevel].maxExp){ player.addJobExp(perTick.jobExp); } // perTick.jobExp
       }
-    } else {
-      console.log(player)
-    }
+    } else { console.log(player) } // Player was not an object, let's log
     localStorage.setItem('player', JSON.stringify(player))
   }, perTick.tickSpeed)
 };

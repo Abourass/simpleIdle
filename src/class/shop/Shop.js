@@ -19,7 +19,7 @@ class Shop{
       new Item(
         `<i class="fas fa-book"></i> Code: The Hidden Language of Computer Hardware and Software`,
         'bookCode',
-        [new Bonus('_int', 1, 'Int +1', 'once')],
+        [new Bonus('int', 1, 'Int +1', 'once')],
         {jobCategory: 'computer', jobLevel: 1, cost: 40}
         ),
       new Item(
