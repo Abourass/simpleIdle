@@ -51,7 +51,7 @@ class Player {
   update(prop, operation, amount){
     const property = `_${prop}`;
     operation === 'add' ? this[property] += amount : this[property] -= amount;
-    document.getElementById(prop).innerText = this[property];
+    if (document.getElementById(prop)) document.getElementById(prop).innerText = this[property];
   }
 
   increaseStat(stat, fn){

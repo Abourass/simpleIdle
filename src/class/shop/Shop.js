@@ -11,17 +11,26 @@ class Shop{
         {jobCategory: 'computer', jobLevel: 1, cost: 100}
         ),
       new Item(
-        'Custom Keys for your Keyboard',
-        'customKeys',
-        [new Bonus('money', 1, 'Money Per Second +1', 'perTick')],
-        {jobCategory: 'computer', jobLevel: 2, cost: 200}
-        ),
-      new Item(
-        `<i class="fas fa-book"></i> Code: The Hidden Language of Computer Hardware and Software`,
+        '<i class="fas fa-book"></i> Code: The Hidden Language of Computer Hardware and Software',
         'bookCode',
         [new Bonus('int', 1, 'Int +1', 'once')],
         {jobCategory: 'computer', jobLevel: 1, cost: 40}
         ),
+      new Item(
+        'Custom Keys for your Keyboard',
+        'customKeys',
+        [new Bonus('money', 1, 'Money Per Second +1', 'perTick')],
+        {jobCategory: 'computer', jobLevel: 2, cost: 200}
+      ),
+      new Item(
+        '<i class="fas fa-book"></i> JavaScript: The Definitive Guide',
+        'bookJSDefinitiveGuide',
+        [
+          new Bonus('creativity', 10, 'Creativity +10', 'once'),
+          new Bonus('int', 1, 'Int +1', 'once')
+        ],
+        {jobCategory: 'computer', jobLevel: 1, cost: 1}
+      ),
       new Item(
         'Food Handling License',
         'foodLicense',
