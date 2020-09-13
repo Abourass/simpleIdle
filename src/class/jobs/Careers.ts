@@ -81,11 +81,11 @@ export class Careers {
 }
 
 const computerPath = new JobPath({category: 'computer', levelsWithExpRequirements: [
-    {minExp: 0, maxExp: 199, positions: [], level: 0},
-    {minExp: 200, maxExp: 599, positions: [], level: 1},
-    {minExp: 600, maxExp: 1499, positions: [], level: 2},
-    {minExp: 1500, maxExp: 2499, positions: [], level: 3},
-    {minExp: 2500, maxExp: 4999, positions: [], level: 4},
+    {minExp: 0, maxExp: 200, positions: [], level: 0},
+    {minExp: 200, maxExp: 600, positions: [], level: 1},
+    {minExp: 600, maxExp: 1500, positions: [], level: 2},
+    {minExp: 1500, maxExp: 25009, positions: [], level: 3},
+    {minExp: 2500, maxExp: 5000, positions: [], level: 4},
     {minExp: 5000, maxExp: 7500, positions: [], level: 5}]
 });
 computerPath.addPositions([new Position({title: 'Freelance Coder', salary: 2, expPerClick: 2, btnText: 'Code Idle Games', altText: 'Make those numbers go up', requirements: {int: 5, dex: 3, char: 3, perc: 3}})], 0);
@@ -109,11 +109,11 @@ computerPath.addPositions([
 ], 5);
 
 const foodPath = new JobPath({category: 'food', levelsWithExpRequirements: [
-    {minExp: 0, maxExp: 199, positions: [], level: 0},
-    {minExp: 200, maxExp: 599, positions: [], level: 1},
-    {minExp: 600, maxExp: 1499, positions: [], level: 2},
-    {minExp: 1500, maxExp: 2499, positions: [], level: 3},
-    {minExp: 2500, maxExp: 4999, positions: [], level: 4},
+    {minExp: 0, maxExp: 200, positions: [], level: 0},
+    {minExp: 200, maxExp: 600, positions: [], level: 1},
+    {minExp: 600, maxExp: 1500, positions: [], level: 2},
+    {minExp: 1500, maxExp: 2500, positions: [], level: 3},
+    {minExp: 2500, maxExp: 5000, positions: [], level: 4},
     {minExp: 5000, maxExp: 7500, positions: [], level: 5}]
 })
 foodPath.addPositions([
@@ -122,11 +122,11 @@ foodPath.addPositions([
 ], 0);
 
 const famePath = new JobPath({category: 'fame', levelsWithExpRequirements: [
-    {minExp: 0, maxExp: 199, positions: [], level: 0},
-    {minExp: 200, maxExp: 599, positions: [], level: 1},
-    {minExp: 600, maxExp: 1499, positions: [], level: 2},
-    {minExp: 1500, maxExp: 2499, positions: [], level: 3},
-    {minExp: 2500, maxExp: 4999, positions: [], level: 4},
+    {minExp: 0, maxExp: 200, positions: [], level: 0},
+    {minExp: 200, maxExp: 600, positions: [], level: 1},
+    {minExp: 600, maxExp: 1500, positions: [], level: 2},
+    {minExp: 1500, maxExp: 2500, positions: [], level: 3},
+    {minExp: 2500, maxExp: 5000, positions: [], level: 4},
     {minExp: 5000, maxExp: 7500, positions: [], level: 5}]
 })
 famePath.addPositions([
@@ -143,11 +143,11 @@ famePath.addPositions([new Position({title: 'Video Game Reviewer', salary: 3, ex
 famePath.addPositions([new Position({title: 'Professional Gamer', salary: 5, expPerClick: 4, btnText: 'Play Championship', altText: 'Adderall and caffeine isn\'t a health liability, it\'s a way of life', requirements: {int: 4, dex: 3, char: 8, perc: 4}})], 3);
 
 const servicePath = new JobPath({category: 'service', levelsWithExpRequirements: [
-    {minExp: 0, maxExp: 199, positions: [], level: 0},
-    {minExp: 200, maxExp: 599, positions: [], level: 1},
-    {minExp: 600, maxExp: 1499, positions: [], level: 2},
-    {minExp: 1500, maxExp: 2499, positions: [], level: 3},
-    {minExp: 2500, maxExp: 4999, positions: [], level: 4},
+    {minExp: 0, maxExp: 200, positions: [], level: 0},
+    {minExp: 200, maxExp: 600, positions: [], level: 1},
+    {minExp: 600, maxExp: 1500, positions: [], level: 2},
+    {minExp: 1500, maxExp: 2500, positions: [], level: 3},
+    {minExp: 2500, maxExp: 5000, positions: [], level: 4},
     {minExp: 5000, maxExp: 7500, positions: [], level: 5}]
 })
 servicePath.addPositions([
@@ -161,11 +161,11 @@ servicePath.addPositions([
 ], 2);
 
 const crimePath = new JobPath({category: 'crime', levelsWithExpRequirements: [
-    {minExp: 0, maxExp: 199, positions: [], level: 0},
-    {minExp: 200, maxExp: 599, positions: [], level: 1},
-    {minExp: 600, maxExp: 1499, positions: [], level: 2},
-    {minExp: 1500, maxExp: 2499, positions: [], level: 3},
-    {minExp: 2500, maxExp: 4999, positions: [], level: 4},
+    {minExp: 0, maxExp: 200, positions: [], level: 0},
+    {minExp: 200, maxExp: 600, positions: [], level: 1},
+    {minExp: 600, maxExp: 1500, positions: [], level: 2},
+    {minExp: 1500, maxExp: 2500, positions: [], level: 3},
+    {minExp: 2500, maxExp: 5000, positions: [], level: 4},
     {minExp: 5000, maxExp: 7500, positions: [], level: 5}]
 })
 crimePath.addPositions([
